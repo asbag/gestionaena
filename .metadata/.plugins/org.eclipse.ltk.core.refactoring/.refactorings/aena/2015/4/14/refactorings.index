@@ -1,0 +1,19 @@
+1428183660463	Rename package 'modelo'
+1428183679855	Rename package 'modelo.impl'
+1428183698119	Rename package 'sessionfactory'
+1428239732566	Rename package 'com.innova4b.modelo'
+1428239742402	Rename package 'com.innova4b.modelo.impl'
+1428239760953	Rename package 'com.innova4b.DAO'
+1428239770846	Rename package 'com.innova4b.modelo.DAO'
+1428240152777	Rename package 'com.innova4b.dao'
+1428240163856	Rename package 'com.innova4b.modelo.dao'
+1428241156674	Copy file
+1428241356686	Delete element
+1428241797232	Rename type 'AvionService'
+1428244887442	Copy compilation unit
+1428244898494	Delete element
+1428246226564	Delete element
+1428246527481	Rename type 'ListaAviones'
+1428246586167	Move compilation unit
+1428253217581	Move 9 resources to 'lib'
+1428254258096	Delete element

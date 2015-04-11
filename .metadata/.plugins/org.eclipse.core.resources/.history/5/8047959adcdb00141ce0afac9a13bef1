@@ -1,0 +1,10 @@
+package com.innova4b.modelo;
+
+public class Aeropuerto {
+	private Long id = null;
+	private String nombre;
+	private int numPuertas;
+	private String pais;
+	
+	
+}

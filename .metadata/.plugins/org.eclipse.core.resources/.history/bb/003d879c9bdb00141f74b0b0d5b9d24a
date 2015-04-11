@@ -1,0 +1,5 @@
+package com.innova4b.servicio;
+
+public interface AvionServicio {
+	public List listarAvionesCaducados
+}

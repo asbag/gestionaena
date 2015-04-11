@@ -1,0 +1,10 @@
+package com.innova4b.listas;
+
+import java.util.List;
+
+import com.innova4b.modelo.Avion;
+
+public class ListaAviones {
+	private List<Avion> listAviones = new ArrayList<List>;
+
+}

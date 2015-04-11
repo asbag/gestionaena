@@ -1,0 +1,42 @@
+package com.innova4b.servicio.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.innova4b.listas.ListaAviones;
+import com.innova4b.listas.impl.ListaAvionesImpl;
+import com.innova4b.modelo.Avion;
+import com.innova4b.servicio.AvionServicio;
+import com.innova4b.sessionfactory.HibernateUtil;
+
+public class AvionServicioImpl implements AvionServicio {
+	//Listar aviones con licencia caducada
+	Session session;
+
+	@Override
+	public List<String> listarAvionesCaducados () {
+		ListaAviones listAviones = new ListaAvionesImpl();
+		ArrayList list = null;
+		
+        Query query = null;
+        Session session = null;
+        try {
+    		String hql = "select A.modelo from Avion A where A.estadoLicencia = 0";
+            session = HibernateUtil.getSessionFactory().getCurrentSession();
+            Transaction transaction = session.beginTransaction();
+    		query = session.createQuery(hql);
+    		list = query.list();
+    		
+            query = session.createQuery(hql);
+            transaction.commit();
+        } catch (HibernateException e) {
+            System.out.println("Exception in HqlQuery");
+            e.printStackTrace();
+        return list;
+	}
+
+}

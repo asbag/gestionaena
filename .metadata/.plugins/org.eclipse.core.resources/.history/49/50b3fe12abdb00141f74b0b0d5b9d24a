@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>Web Arquitecture</display-name>
+  <servlet>
+    <servlet-name>Empleado</servlet-name>
+    <servlet-class>my.project.controller.EmpleadoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Empleado</servlet-name>
+    <url-pattern>/emp/*</url-pattern>
+  </servlet-mapping>
+   <servlet>
+    <servlet-name>Empresa</servlet-name>
+    <servlet-class>my.project.controller.EmpresaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Empresa</servlet-name>
+    <url-pattern>/empr/*</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <resource-ref>
+    <description>Conexion MySQL</description>
+    <res-ref-name>jdbc/empresaReparto</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
+</web-app>

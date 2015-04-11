@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Aena</display-name>
+	<servlet>
+		<servlet-name>Avion</servlet-name>
+		<servlet-class>com.innova4b.controlador.Avion</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>Avion</servlet-name>
+	<url-pattern>/avion/*</url-pattern>
+	</servlet-mapping>
+</web-app>

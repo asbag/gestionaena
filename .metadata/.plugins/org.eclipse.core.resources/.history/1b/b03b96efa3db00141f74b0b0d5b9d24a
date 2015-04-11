@@ -1,0 +1,64 @@
+package com.innova4b.modelo;
+
+public interface Avion {
+
+	public Integer getId();
+	
+	protected void setId(Integer id);
+
+	
+	public String getModelo();
+	
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	
+	public int getMaxPasajeros() {
+		return maxPasajeros;
+	}
+	
+	public void setMaxPasajeros(int maxPasajeros) {
+		this.maxPasajeros = maxPasajeros;
+	}
+	
+	public Timestamp getHoraSalida() {
+		return horaSalida;
+	}
+	
+	public void setHoraSalida(Timestamp horaSalida) {
+		this.horaSalida = horaSalida;
+	}
+	
+	public Timestamp getHoraLlegada() {
+		return horaLlegada;
+	}
+	
+	public void setHoraLlegada(Timestamp horaLlegada) {
+		this.horaLlegada = horaLlegada;
+	}
+	
+	public int getCodigoLicencia() {
+		return codigoLicencia;
+	}
+	
+	public void setCodigoLicencia(int codigoLicencia) {
+		this.codigoLicencia = codigoLicencia;
+	}
+	
+	public boolean isEstadoLicencia() {
+		return estadoLicencia;
+	}
+	
+	public void setEstadoLicencia(boolean estadoLicencia) {
+		this.estadoLicencia = estadoLicencia;
+	}
+	
+	public Date getCaducidadLicencia() {
+		return caducidadLicencia;
+	}
+	
+	public void setCaducidadLicencia(Date caducidadLicencia) {
+		this.caducidadLicencia = caducidadLicencia;
+	}
+	
+}

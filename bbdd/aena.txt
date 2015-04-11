@@ -1,0 +1,197 @@
+-- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: aena
+-- ------------------------------------------------------
+-- Server version	5.5.41-0ubuntu0.14.10.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `aeropuerto`
+--
+
+DROP TABLE IF EXISTS `aeropuerto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `aeropuerto` (
+  `idAeropuerto` int(11) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `num_puertas` int(11) DEFAULT NULL,
+  `pais` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  PRIMARY KEY (`idAeropuerto`),
+  UNIQUE KEY `nombre_UNIQUE` (`nombre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `aeropuerto`
+--
+
+LOCK TABLES `aeropuerto` WRITE;
+/*!40000 ALTER TABLE `aeropuerto` DISABLE KEYS */;
+INSERT INTO `aeropuerto` VALUES (1,'Barajas',80,'ES'),(2,'El Prat',60,'ES'),(3,'Heathrow',100,'UK'),(4,'Charles Le Gaulle',80,'FR'),(5,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `aeropuerto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `avion`
+--
+
+DROP TABLE IF EXISTS `avion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `avion` (
+  `idAvion` int(11) NOT NULL,
+  `modelo` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `max_pasajeros` int(11) DEFAULT NULL,
+  `hora_salida` datetime DEFAULT NULL,
+  `hora_llegada` datetime DEFAULT NULL,
+  `codigo_licencia` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `estado_licencia` tinyint(4) DEFAULT NULL,
+  `caducidad_licencia` date DEFAULT NULL,
+  `compania_idCompania` int(11) NOT NULL,
+  PRIMARY KEY (`idAvion`),
+  UNIQUE KEY `modelo_UNIQUE` (`modelo`),
+  KEY `fk_avion_compania1_idx` (`compania_idCompania`),
+  CONSTRAINT `fk_avion_compania1` FOREIGN KEY (`compania_idCompania`) REFERENCES `compania` (`idCompania`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `avion`
+--
+
+LOCK TABLES `avion` WRITE;
+/*!40000 ALTER TABLE `avion` DISABLE KEYS */;
+INSERT INTO `avion` VALUES (1,'aaa333b3d',60,'2015-04-14 07:23:00','2015-04-14 17:41:00','333aaa333',1,'2015-05-05',1),(2,'aaaeee324',30,'2015-04-14 07:23:00','2015-04-14 17:41:00','333aba333',0,'2014-05-05',1),(3,'asdkd0322',50,'2015-04-14 06:23:00','2015-04-14 17:41:00','232azkas99',1,'2015-05-05',2);
+/*!40000 ALTER TABLE `avion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `compania`
+--
+
+DROP TABLE IF EXISTS `compania`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `compania` (
+  `idCompania` int(11) NOT NULL,
+  `nombre` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  PRIMARY KEY (`idCompania`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `compania`
+--
+
+LOCK TABLES `compania` WRITE;
+/*!40000 ALTER TABLE `compania` DISABLE KEYS */;
+INSERT INTO `compania` VALUES (1,'Iberia'),(2,'Lufthansa'),(3,'British Airways'),(4,'Turkish Airlines');
+/*!40000 ALTER TABLE `compania` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `compania_has_ruta`
+--
+
+DROP TABLE IF EXISTS `compania_has_ruta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `compania_has_ruta` (
+  `compania_idCompania` int(11) NOT NULL,
+  `ruta_idRuta` int(11) NOT NULL,
+  PRIMARY KEY (`compania_idCompania`,`ruta_idRuta`),
+  KEY `fk_compania_has_ruta_ruta1_idx` (`ruta_idRuta`),
+  KEY `fk_compania_has_ruta_compania1_idx` (`compania_idCompania`),
+  CONSTRAINT `fk_compania_has_ruta_compania1` FOREIGN KEY (`compania_idCompania`) REFERENCES `compania` (`idCompania`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_compania_has_ruta_ruta1` FOREIGN KEY (`ruta_idRuta`) REFERENCES `ruta` (`idRuta`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `compania_has_ruta`
+--
+
+LOCK TABLES `compania_has_ruta` WRITE;
+/*!40000 ALTER TABLE `compania_has_ruta` DISABLE KEYS */;
+INSERT INTO `compania_has_ruta` VALUES (1,1),(1,2),(2,2);
+/*!40000 ALTER TABLE `compania_has_ruta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ruta`
+--
+
+DROP TABLE IF EXISTS `ruta`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ruta` (
+  `idRuta` int(11) NOT NULL,
+  `aeropuerto_idAeropuerto` int(11) NOT NULL,
+  `aeropuerto_idAeropuerto1` int(11) NOT NULL,
+  PRIMARY KEY (`idRuta`,`aeropuerto_idAeropuerto`,`aeropuerto_idAeropuerto1`),
+  KEY `fk_ruta_aeropuerto1_idx` (`aeropuerto_idAeropuerto`),
+  KEY `fk_ruta_aeropuerto1_idx1` (`aeropuerto_idAeropuerto1`),
+  CONSTRAINT `aeropuerto_destino` FOREIGN KEY (`aeropuerto_idAeropuerto1`) REFERENCES `aeropuerto` (`idAeropuerto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `aeropuerto_origen` FOREIGN KEY (`aeropuerto_idAeropuerto`) REFERENCES `aeropuerto` (`idAeropuerto`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ruta`
+--
+
+LOCK TABLES `ruta` WRITE;
+/*!40000 ALTER TABLE `ruta` DISABLE KEYS */;
+INSERT INTO `ruta` VALUES (1,1,2),(2,2,1);
+/*!40000 ALTER TABLE `ruta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ruta_has_avion`
+--
+
+DROP TABLE IF EXISTS `ruta_has_avion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ruta_has_avion` (
+  `ruta_idRuta` int(11) NOT NULL,
+  `avion_idAvion` int(11) NOT NULL,
+  PRIMARY KEY (`ruta_idRuta`,`avion_idAvion`),
+  KEY `fk_ruta_has_avion_avion1_idx` (`avion_idAvion`),
+  KEY `fk_ruta_has_avion_ruta_idx` (`ruta_idRuta`),
+  CONSTRAINT `fk_ruta_has_avion_avion1` FOREIGN KEY (`avion_idAvion`) REFERENCES `avion` (`idAvion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ruta_has_avion_ruta` FOREIGN KEY (`ruta_idRuta`) REFERENCES `ruta` (`idRuta`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ruta_has_avion`
+--
+
+LOCK TABLES `ruta_has_avion` WRITE;
+/*!40000 ALTER TABLE `ruta_has_avion` DISABLE KEYS */;
+INSERT INTO `ruta_has_avion` VALUES (1,1),(2,2);
+/*!40000 ALTER TABLE `ruta_has_avion` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-04-11  9:11:26

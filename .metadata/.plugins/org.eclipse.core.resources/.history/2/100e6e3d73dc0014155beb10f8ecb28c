@@ -1,0 +1,56 @@
+package com.innova4b.modelo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="aeropuerto")
+public class Aeropuerto {
+	@Id @GeneratedValue
+	@Column(name="idAeropuerto")
+	private Long id = null;
+	
+	@Column(name="nombre")
+	private String nombre;
+	
+	@Column(name="num_puertas")
+	private int numPuertas;
+	
+	@Column(name="pais")
+	private String pais;
+
+	@OneToMany(mappedBy="aeropuertoOrigen")
+	private Set<Ruta> ruta;
+
+	public Long getId() {
+		return id;
+	}
+	protected void setId(Long id) {
+		this.id = id;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public int getNumPuertas() {
+		return numPuertas;
+	}
+	public void setNumPuertas(int numPuertas) {
+		this.numPuertas = numPuertas;
+	}
+	public String getPais() {
+		return pais;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	
+	
+}

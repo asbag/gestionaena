@@ -1,0 +1,15 @@
+package com.innova4b.modelo;
+
+public class Ruta {
+	private Long idRuta = null;
+
+	public Long getIdRuta() {
+		return idRuta;
+	}
+
+	protected void setIdRuta(Long idRuta) {
+		this.idRuta = idRuta;
+	}
+	
+	
+}
