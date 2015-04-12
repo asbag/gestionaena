@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.sql.Timestamp"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.innova4b.modelo.Avion"/>
 <fullyQualifiedTypeName name="com.innova4b.listas.ListaAviones"/>
 <fullyQualifiedTypeName name="org.hibernate.HibernateException"/>
@@ -16,7 +15,6 @@
 <fullyQualifiedTypeName name="com.innova4b.sessionfactory.HibernateUtil"/>
 <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
 <fullyQualifiedTypeName name="com.innova4b.listas.impl.ListaAvionesImpl"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
 <fullyQualifiedTypeName name="javax.persistence.JoinTable"/>
 <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
@@ -25,7 +23,14 @@
 <fullyQualifiedTypeName name="org.hibernate.annotations.Entity"/>
 <fullyQualifiedTypeName name="javax.persistence.Entity"/>
 <fullyQualifiedTypeName name="javax.persistence.Table"/>
+<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
 <fullyQualifiedTypeName name="javax.persistence.Column"/>
 <fullyQualifiedTypeName name="javax.persistence.Id"/>
-<fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+<fullyQualifiedTypeName name="com.innova4b.servicio.AeropuertoServicio"/>
+<fullyQualifiedTypeName name="com.innova4b.servicio.impl.AeropuertoServicioImpl"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.hibernate.Criteria"/>
+<fullyQualifiedTypeName name="org.hibernate.criterion.Restrictions"/>
+<fullyQualifiedTypeName name="com.innova4b.modelo.Aeropuerto"/>
 </qualifiedTypeNameHistroy>

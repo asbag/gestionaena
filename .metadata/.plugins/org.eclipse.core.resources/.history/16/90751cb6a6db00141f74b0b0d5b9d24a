@@ -1,5 +1,0 @@
-package com.innova4b.listas;
-
-public interface ListaAviones {
-
-}

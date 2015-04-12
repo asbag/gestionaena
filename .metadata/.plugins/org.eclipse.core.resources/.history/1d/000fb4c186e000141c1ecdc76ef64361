@@ -1,0 +1,6 @@
+package com.innova4b.modelo;
+
+@Entity(table="estado")
+public class Estado {
+	
+}

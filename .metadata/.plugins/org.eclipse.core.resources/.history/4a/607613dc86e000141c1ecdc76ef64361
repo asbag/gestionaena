@@ -1,0 +1,9 @@
+package com.innova4b.modelo;
+
+import javax.persistence.Entity;
+
+@Entity
+@Table(name="estado")
+public class Estado {
+	
+}

@@ -1,0 +1,7 @@
+package com.innova4b.servicio;
+
+public interface AeropuertoServicio {
+	public int numPuertasDisponibles ();
+	
+	public List<Aeropuerto> obtenerAeropuertos();
+}

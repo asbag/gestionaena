@@ -30,8 +30,6 @@ public class AvionServicioImpl implements AvionServicio {
 			Transaction transaction = session.beginTransaction();
 			query = session.createQuery(hql);
 			list = query.list();
-
-			query = session.createQuery(hql);
 			transaction.commit();
 		} catch (HibernateException e) {
 			System.out.println("Exception in HqlQuery");
@@ -48,15 +46,17 @@ public class AvionServicioImpl implements AvionServicio {
 		List<String> list = null;
 
 		try{
-			String hql = "select A.modelo from Avion A left join A.rutas R left join R.aeropuertoOrigen P where P.pais = :pais";
-			
+			//String hql = "select A.modelo from Avion A left join A.rutas R left join R.aeropuertoOrigen P where P.pais = :pais";
+			//String hql = "select A.modelo from Avion A where A.rutas in (select R.id from Ruta R left join R.aeropuertoOrigen O where O.pais = :pais) or A.rutas in (select J.id from Ruta J left join J.aeropuertoDestino D where D.pais = :pais)";
+			//String hql = "select A.modelo from Avion A where A.rutas in (select J.id from Ruta J left join J.aeropuertoDestino D where D.pais = :pais)";
+			//String hql = "select A.id from Aeropuerto.A where A.pais = :pais";
+			String hql = "select P.modelo from Avion P left join P.rutas R where R.aeropuertoOrigen in (select A.id from Aeropuerto A where A.pais = :pais) or R.aeropuertoDestino in (select D.id from Aeropuerto D where D.pais = :pais)";
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			Transaction transaction = session.beginTransaction();
-			//query = session.createQuery(hql).setInteger("estado", 0);
 			query = session.createQuery(hql).setString("pais", "ES");
 			list = query.list();
 		} catch (HibernateException e){
-			System.out.println("Exception in HqlQuery Listar Aviones Españoles");
+			e.printStackTrace();
 		}
 
 		return list;

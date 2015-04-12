@@ -21,7 +21,7 @@
 		<li class="active"><a
 			href="${pageContext.request.contextPath}/avion/listar_espanioles">Listado Aviones Españoles</a></li>
 		<li class="active"><a
-			href="${pageContext.request.contextPath}/servletconfig">Servlet Context - Config</a></li>
+			href="${pageContext.request.contextPath}/aeropuerto/listar_aeropuertos">Listar Puertas Embarque</a></li>
 		<li class="active"><a
 			href="${pageContext.request.contextPath}/enlaces/collections">Collections</a></li>
 

@@ -1,7 +1,0 @@
-package com.innova4b.modelo.impl;
-
-import com.innova4b.modelo.Avion;
-
-public class AvionImpl implements Avion {
-
-}
