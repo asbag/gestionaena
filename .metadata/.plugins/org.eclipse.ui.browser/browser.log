@@ -196,3 +196,119 @@ abr. 12, 2015 24:04:33.24
 abr. 12, 2015 24:04:33.24 (process:12389): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
 abr. 12, 2015 24:05:43.85 
 abr. 12, 2015 24:05:43.85 (process:12490): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+
+abr. 12, 2015 18:48:54.05 NEW SESSION
+abr. 12, 2015 18:48:54.05 
+abr. 12, 2015 18:48:54.05 (process:15216): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:12:48.62 
+abr. 12, 2015 19:12:48.62 (process:15608): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:17:23.90 
+abr. 12, 2015 19:17:23.90 (process:15827): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:21:40.94 
+abr. 12, 2015 19:21:40.94 (process:16011): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:26:23.34 
+abr. 12, 2015 19:26:23.34 (process:16159): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:27:02.53 
+abr. 12, 2015 19:27:02.53 (process:16259): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:28:31.32 
+abr. 12, 2015 19:28:31.32 (process:16297): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:29:05.14 
+abr. 12, 2015 19:29:05.14 (process:16375): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:36:44.32 
+abr. 12, 2015 19:36:44.32 (process:16625): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:37:44.14 
+abr. 12, 2015 19:37:44.14 (process:16729): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:40:49.49 
+abr. 12, 2015 19:40:49.49 (process:16889): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:43:15.69 
+abr. 12, 2015 19:43:15.69 (process:17022): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:44:01.94 
+abr. 12, 2015 19:44:01.94 (process:17111): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:45:23.60 
+abr. 12, 2015 19:45:23.60 (process:17209): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:48:48.81 
+abr. 12, 2015 19:48:48.82 (process:17361): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:56:55.96 
+abr. 12, 2015 19:56:55.96 (process:17568): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:57:39.04 
+abr. 12, 2015 19:57:39.04 (process:17610): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:57:48.39 
+abr. 12, 2015 19:57:48.39 (process:17618): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 19:58:47.24 
+abr. 12, 2015 19:58:47.24 (process:17761): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:01:29.73 
+abr. 12, 2015 20:01:29.73 (process:17880): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:03:00.18 
+abr. 12, 2015 20:03:00.18 (process:18027): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:09:18.81 
+abr. 12, 2015 20:09:18.81 (process:18266): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:13:36.78 
+abr. 12, 2015 20:13:36.78 (process:18394): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:13:46.06 
+abr. 12, 2015 20:13:46.06 (process:18407): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:14:43.10 
+abr. 12, 2015 20:14:43.10 (process:18547): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:15:42.88 
+abr. 12, 2015 20:15:42.88 (process:18593): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:35:39.17 
+abr. 12, 2015 20:35:39.17 (process:18807): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:45:15.62 
+abr. 12, 2015 20:45:15.62 (process:18928): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 20:47:59.06 
+abr. 12, 2015 20:47:59.06 (process:19064): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 22:48:15.04 
+abr. 12, 2015 22:48:15.04 (process:20616): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 22:49:21.30 
+abr. 12, 2015 22:49:21.30 (process:20699): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 22:50:46.46 
+abr. 12, 2015 22:50:46.46 (process:20830): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 12, 2015 23:09:22.71 
+abr. 12, 2015 23:09:22.71 (process:21285): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+
+abr. 14, 2015 15:45:55.92 NEW SESSION
+abr. 14, 2015 15:45:55.93 
+abr. 14, 2015 15:45:55.94 (process:3056): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:31:41.16 
+abr. 14, 2015 16:31:41.16 (process:3725): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:36:56.68 
+abr. 14, 2015 16:36:56.68 (process:3851): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:37:35.66 
+abr. 14, 2015 16:37:35.66 (process:3939): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:41:54.68 
+abr. 14, 2015 16:41:54.68 (process:4199): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:45:34.23 
+abr. 14, 2015 16:45:34.23 (process:4529): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:47:20.61 
+abr. 14, 2015 16:47:20.62 (process:4790): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:47:46.16 
+abr. 14, 2015 16:47:46.16 (process:4855): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:50:43.19 
+abr. 14, 2015 16:50:43.19 (process:4959): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:51:03.10 
+abr. 14, 2015 16:51:03.10 (process:5050): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 16:53:08.32 
+abr. 14, 2015 16:53:08.32 (process:5139): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:01:12.40 
+abr. 14, 2015 17:01:12.40 (process:5492): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:03:21.15 
+abr. 14, 2015 17:03:21.15 (process:5621): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:08:19.68 
+abr. 14, 2015 17:08:19.68 (process:5823): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:14:38.36 
+abr. 14, 2015 17:14:38.36 (process:6042): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:16:18.80 
+abr. 14, 2015 17:16:18.80 (process:6162): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:18:17.82 
+abr. 14, 2015 17:18:17.82 (process:6301): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:19:02.30 
+abr. 14, 2015 17:19:02.30 (process:6315): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:19:43.54 
+abr. 14, 2015 17:19:43.54 (process:6397): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:20:04.15 
+abr. 14, 2015 17:20:04.15 (process:6416): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:20:41.07 
+abr. 14, 2015 17:20:41.07 (process:6504): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:22:50.17 
+abr. 14, 2015 17:22:50.17 (process:6621): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed
+abr. 14, 2015 17:24:00.98 
+abr. 14, 2015 17:24:00.98 (process:6716): GLib-CRITICAL **: g_slice_set_config: assertion 'sys_page_size == 0' failed

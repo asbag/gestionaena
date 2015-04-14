@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:forgeview="http://jboss.org/forge/view"	
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{aeropuertoBean.id}"/>
+		<f:event type="preRenderView" listener="#{aeropuertoBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Create Aeropuerto"/>
+
+	<ui:define name="header">
+		Aeropuerto
+	</ui:define>
+
+	<ui:define name="subheader">
+		<c:choose>
+			<c:when test="#{!empty aeropuertoBean.id}">
+				Edit existing Aeropuerto
+			</c:when>
+			<c:otherwise>
+				Create a new Aeropuerto
+			</c:otherwise>
+		</c:choose>
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="create">
+			<h:messages globalOnly="true" styleClass="error"/>
+
+			<h:panelGrid columnClasses="label,component,required" columns="3">
+				<h:outputLabel for="aeropuertoBeanAeropuertoIdAeropuerto" value="Id Aeropuerto:"/>
+				<h:panelGroup>
+					<h:inputText id="aeropuertoBeanAeropuertoIdAeropuerto" required="true" value="#{aeropuertoBean.aeropuerto.idAeropuerto}"/>
+					<h:message for="aeropuertoBeanAeropuertoIdAeropuerto" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText value="*"/>
+				<h:outputLabel for="aeropuertoBeanAeropuertoNombre" value="Nombre:"/>
+				<h:panelGroup>
+					<h:inputText id="aeropuertoBeanAeropuertoNombre" maxLength="45" value="#{aeropuertoBean.aeropuerto.nombre}"/>
+					<h:message for="aeropuertoBeanAeropuertoNombre" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="aeropuertoBeanAeropuertoNumPuertas" value="Num Puertas:"/>
+				<h:panelGroup>
+					<h:inputText id="aeropuertoBeanAeropuertoNumPuertas" value="#{aeropuertoBean.aeropuerto.numPuertas}"/>
+					<h:message for="aeropuertoBeanAeropuertoNumPuertas" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="aeropuertoBeanAeropuertoPais" value="Pais:"/>
+				<h:panelGroup>
+					<h:inputText id="aeropuertoBeanAeropuertoPais" maxLength="45" value="#{aeropuertoBean.aeropuerto.pais}"/>
+					<h:message for="aeropuertoBeanAeropuertoPais" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="aeropuertoBeanAeropuertoEmbarques" value="Embarques:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{aeropuertoBean.aeropuerto.embarques}"/>
+					<h:dataTable id="aeropuertoBeanAeropuertoEmbarques" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Num"/>
+							</f:facet>
+							<h:link outcome="/embarque/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="itemNum" value="#{_item.num}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:inputText id="embarqueBeanAddNum" value="#{embarqueBean.add.num}"/>
+								<h:message for="embarqueBeanAddNum" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(embarqueBean.added)}" id="aeropuertoBeanAeropuertoEmbarquesAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{embarqueBean.add.aeropuerto}" value="#{aeropuertoBean.aeropuerto}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="aeropuertoBeanAeropuertoRutasForAeropuertoIdAeropuerto1" value="Rutas For Aeropuerto Id Aeropuerto 1:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{aeropuertoBean.aeropuerto.rutasForAeropuertoIdAeropuerto1}"/>
+					<h:dataTable id="aeropuertoBeanAeropuertoRutasForAeropuertoIdAeropuerto1" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Aeropuerto By Aeropuerto Id Aeropuerto"/>
+							</f:facet>
+							<h:link outcome="/ruta/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemAeropuertoByAeropuertoIdAeropuerto" value="#{forgeview:display(_item.aeropuertoByAeropuertoIdAeropuerto)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{aeropuertoBean.converter}" id="rutaBeanAddAeropuertoByAeropuertoIdAeropuerto" value="#{rutaBean.add.aeropuertoByAeropuertoIdAeropuerto}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{aeropuertoBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="rutaBeanAddAeropuertoByAeropuertoIdAeropuerto" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(rutaBean.added)}" id="aeropuertoBeanAeropuertoRutasForAeropuertoIdAeropuerto1Add" styleClass="add-button">
+									<f:setPropertyActionListener target="#{rutaBean.add.aeropuertoByAeropuertoIdAeropuerto1}" value="#{aeropuertoBean.aeropuerto}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="aeropuertoBeanAeropuertoRutasForAeropuertoIdAeropuerto" value="Rutas For Aeropuerto Id Aeropuerto:"/>
+				<h:panelGroup>
+					<ui:param name="_collection" value="#{aeropuertoBean.aeropuerto.rutasForAeropuertoIdAeropuerto}"/>
+					<h:dataTable id="aeropuertoBeanAeropuertoRutasForAeropuertoIdAeropuerto" styleClass="data-table" value="#{forgeview:asList(_collection)}" var="_item">
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Aeropuerto By Aeropuerto Id Aeropuerto 1"/>
+							</f:facet>
+							<h:link outcome="/ruta/view">
+								<f:param name="id" value="#{_item.id}"/>
+								<h:outputText id="forgeviewdisplayitemAeropuertoByAeropuertoIdAeropuerto1" value="#{forgeview:display(_item.aeropuertoByAeropuertoIdAeropuerto1)}"/>
+							</h:link>
+							<f:facet name="footer">
+								<h:selectOneMenu converter="#{aeropuertoBean.converter}" id="rutaBeanAddAeropuertoByAeropuertoIdAeropuerto1" value="#{rutaBean.add.aeropuertoByAeropuertoIdAeropuerto1}">
+									<f:selectItem/>
+									<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{aeropuertoBean.all}" var="_item"/>
+								</h:selectOneMenu>
+								<h:message for="rutaBeanAddAeropuertoByAeropuertoIdAeropuerto1" styleClass="error"/>
+							</f:facet>
+						</h:column>
+						<h:column footerClass="remove-column" headerClass="remove-column">
+							<h:commandLink action="#{_collection.remove(_item)}" styleClass="remove-button"/>
+							<f:facet name="footer">
+								<h:commandLink action="#{_collection.add(rutaBean.added)}" id="aeropuertoBeanAeropuertoRutasForAeropuertoIdAeropuertoAdd" styleClass="add-button">
+									<f:setPropertyActionListener target="#{rutaBean.add.aeropuertoByAeropuertoIdAeropuerto}" value="#{aeropuertoBean.aeropuerto}"/>
+								</h:commandLink>
+							</f:facet>
+						</h:column>
+					</h:dataTable>
+				</h:panelGroup>
+				<h:outputText/>
+			</h:panelGrid>
+
+			<div class="buttons">
+				<h:commandLink value="Save" action="#{aeropuertoBean.update}" styleClass="btn btn-primary"/>
+				<c:choose>
+					<c:when test="#{!empty aeropuertoBean.id}">
+						<h:link value="Cancel" outcome="view" styleClass="btn btn-primary">
+							<f:param name="id" value="#{aeropuertoBean.id}"/>
+						</h:link>
+						<h:commandLink value="Delete" action="#{aeropuertoBean.delete}" styleClass="btn btn-primary"/>
+					</c:when>
+					<c:otherwise>
+						<h:link value="Cancel" outcome="search" styleClass="btn btn-primary"/>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

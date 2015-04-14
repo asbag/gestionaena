@@ -1,5 +1,0 @@
-package com.innova4b.servicio.impl;
-
-public class AeropuertoServicoImpl implements AeropuertoServicio {
-
-}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="rutas/list">
+        <put-attribute name="body" value="/WEB-INF/views/rutas/list.jspx"/>
+    </definition>
+<definition extends="default" name="rutas/show">
+        <put-attribute name="body" value="/WEB-INF/views/rutas/show.jspx"/>
+    </definition>
+<definition extends="default" name="rutas/create">
+        <put-attribute name="body" value="/WEB-INF/views/rutas/create.jspx"/>
+    </definition>
+<definition extends="default" name="rutas/update">
+        <put-attribute name="body" value="/WEB-INF/views/rutas/update.jspx"/>
+    </definition>
+</tiles-definitions>

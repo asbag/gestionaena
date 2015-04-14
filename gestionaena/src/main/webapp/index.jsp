@@ -23,7 +23,7 @@
 		<li class="active"><a
 			href="${pageContext.request.contextPath}/aeropuerto/listar_aeropuertos">Listar Puertas Embarque</a></li>
 		<li class="active"><a
-			href="${pageContext.request.contextPath}/enlaces/collections">Collections</a></li>
+			href="${pageContext.request.contextPath}/aeropuerto/num_asientos">N&uacute;mero de Asientos Reservados</a></li>
 
 	</ul>
 

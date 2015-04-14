@@ -5,7 +5,7 @@
       <description>Pipes Output</description>
       <link>http://pipes.yahoo.com/pipes/pipe.info?_id=790c1cc25610e6b571d4857eaeb44fa4</link>
       <atom:link rel="next" href="http://pipes.yahoo.com/pipes/pipe.run?_id=790c1cc25610e6b571d4857eaeb44fa4&amp;_render=rss&amp;page=2" />
-      <pubDate>Fri, 10 Apr 2015 19:47:23 +0000</pubDate>
+      <pubDate>Sun, 12 Apr 2015 16:53:57 +0000</pubDate>
       <generator>http://pipes.yahoo.com/pipes/</generator>
       <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/jbossbuzz" /><feedburner:info uri="jbossbuzz" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><item>
          <title>This week in JBoss (10th April 2015) - Microservices are coming!</title>
@@ -8997,4 +8997,4 @@ Petals Studio was also the pretext to start using <a rel="nofollow" target="_bla
          </media:content>
       <feedburner:origLink>https://mickaelistria.wordpress.com/2012/01/31/goodbye-petalslink-hello-jbossred-hat/</feedburner:origLink></item>
    </channel>
-</rss><!-- fe7.yql.bf1.yahoo.com compressed/chunked Fri Apr 10 19:47:18 UTC 2015 -->
+</rss><!-- fe10.yql.bf1.yahoo.com compressed/chunked Sun Apr 12 16:53:53 UTC 2015 -->

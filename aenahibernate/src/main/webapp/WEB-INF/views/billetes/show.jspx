@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_innova4b_Billete" object="${billete}" path="/billetes" z="JgF/kV2OyG9rPA04cTkvDiGnLw8=">
+        <field:display field="avionIdAvion" id="s_com_innova4b_Billete_avionIdAvion" object="${billete}" z="u/84aSXS5TZgyE2341Hf4k7m8/g="/>
+        <field:display field="pasajeroIdPasajero" id="s_com_innova4b_Billete_pasajeroIdPasajero" object="${billete}" z="Mt+rUT2WdvOLztR0yIJBK2F2duM="/>
+        <field:display field="codgo" id="s_com_innova4b_Billete_codgo" object="${billete}" z="33spEpLPqcRIROD+JTyKCLR7WVY="/>
+        <field:display field="asiento" id="s_com_innova4b_Billete_asiento" object="${billete}" z="wd1butS0VswK+Q8kyHhmyZkW+uQ="/>
+        <field:display calendar="true" dateTimePattern="${billete_fecha_date_format}" field="fecha" id="s_com_innova4b_Billete_fecha" object="${billete}" z="6cS1m/gLm6a4WaLmWsbLyDdo3cA="/>
+        <field:display field="estado" id="s_com_innova4b_Billete_estado" object="${billete}" z="PVXOe/8kli1S+mX6SmCpk3P3IDU="/>
+    </page:show>
+</div>

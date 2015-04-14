@@ -1,9 +1,0 @@
-package com.innova4b.servicio;
-
-import java.util.List;
-
-public interface AeropuertoServicio {
-	public int numPuertasDisponibles ();
-	
-	public List<String> obtenerAeropuertos();
-}

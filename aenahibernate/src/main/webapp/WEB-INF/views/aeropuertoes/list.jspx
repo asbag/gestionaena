@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_innova4b_Aeropuerto" items="${aeropuertoes}" z="6xuGoHyPum2J22YT29UGKrDxvQs=">
+        <table:table data="${aeropuertoes}" id="l_com_innova4b_Aeropuerto" path="/aeropuertoes" typeIdFieldName="idAeropuerto" z="zEJk4X/7og6Sh4gGyqyHr5JBoY0=">
+            <table:column id="c_com_innova4b_Aeropuerto_nombre" property="nombre" z="Iai3NjwBU8j27imHME1O10JH4DQ="/>
+            <table:column id="c_com_innova4b_Aeropuerto_numPuertas" property="numPuertas" z="y0YbfscY9PENHiTxtz34YjS6qjU="/>
+            <table:column id="c_com_innova4b_Aeropuerto_pais" property="pais" z="aEPsJJlOeCagNGjHquNLXTtF3mk="/>
+        </table:table>
+    </page:list>
+</div>

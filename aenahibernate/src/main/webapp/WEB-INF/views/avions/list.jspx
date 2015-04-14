@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_innova4b_Avion" items="${avions}" z="nt2uqJ/+RtgT/2K4N1Fh3I4HYa4=">
+        <table:table data="${avions}" id="l_com_innova4b_Avion" path="/avions" typeIdFieldName="idAvion" z="sHYZkIZpetTXzkt607KNbAtX1CI=">
+            <table:column id="c_com_innova4b_Avion_rutas" property="rutas" z="QyXiQlWVsiuWLx99WqN1C4If2tY="/>
+            <table:column id="c_com_innova4b_Avion_companiaIdCompania" property="companiaIdCompania" z="k9K1hd8mAyWyR/8bl+/jHTsg13s="/>
+            <table:column id="c_com_innova4b_Avion_estadoIdestado" property="estadoIdestado" z="M+KF6z0ax6fdC4AJooiR57Xl1UQ="/>
+            <table:column id="c_com_innova4b_Avion_modelo" property="modelo" z="pVupFYqSQGjmYgSebyN9O0lpuFY="/>
+            <table:column id="c_com_innova4b_Avion_maxPasajeros" property="maxPasajeros" z="Huu6HHqEBw1NGhrDx6rJkEvlthM="/>
+        </table:table>
+    </page:list>
+</div>

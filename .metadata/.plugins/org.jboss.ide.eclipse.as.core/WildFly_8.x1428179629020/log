@@ -455,3 +455,16 @@
 
 !ENTRY org.jboss.ide.eclipse.as.core 1 0 2015-04-08 22:28:02.418
 !MESSAGE Module aena on WildFly 8.x not yet fully deployed. Waiting...
+!SESSION 
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842760 2015-04-14 16:42:53.512
+!MESSAGE Server Starting
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842769 2015-04-14 16:43:03.142
+!MESSAGE Server Startup Succeeded
+
+!ENTRY org.jboss.ide.eclipse.as.core 1 16842776 2015-04-14 16:43:07.500
+!MESSAGE Server shutting down
+
+!ENTRY org.jboss.ide.eclipse.as.wtp.core 1 16973825 2015-04-14 16:43:07.625
+!MESSAGE Server processes have been terminated.

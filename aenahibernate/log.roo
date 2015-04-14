@@ -1,0 +1,40 @@
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 14:35:20
+help
+help database
+project --topLevelPackage com.innova4b --java 8 --projectName aenaHibernate
+persistence setup --database MYSQL --provider HIBERNATE 
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 14:53:55
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 14:59:44
+// [failed] database introspect --schema aena
+osgi obr url add --url http://spring-roo-repository.springsource.org/repository.xml
+osgi obr deploy --bundleSymbolicName org.springframework.roo.wrapping.mysql-connector-java
+osgi obr url remove --url http://spring-roo-repository.springsource.org/repository.xml
+addon install id --searchResultId 01
+// [failed] database introspect --schema aena
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 15:01:02
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 15:01:46
+// [failed] database introspect --schema AENA
+// [failed] database introspect --schema AENA
+jpa setup --provider HIBERNATE --database MYSQL 
+jpa setup --provider HIBERNATE --database MYSQL --userName root --password java_innova4b
+database introspect --schema AENA
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 15:06:24
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 15:08:05
+database introspect --schema AENA
+database introspect --schema aena
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 15:08:46
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 15:08:57
+database introspect --schema aena
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 15:10:38
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 15:11:00
+database introspect --schema aena
+database reverse engineer --schema aena
+controller all --package com.innova4b.web
+perform test
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 15:21:48

@@ -33,12 +33,12 @@ public class AeropuertoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if ("/listar_aeropuertos".equals(request.getPathInfo())){
+		if ("/listar_aeropuertos".equals(request.getPathInfo()) || "/num_puertas".equals(request.getPathInfo())){
 			AeropuertoServicio as = new AeropuertoServicioImpl();
 			List<String> listaAeropuertos = as.obtenerAeropuertos();
 			request.getSession().setAttribute("listaAeropuertos",listaAeropuertos);
 			request.getRequestDispatcher("/listaaeropuertos.jsp").forward(request, response);
-		} 
+		}
 	}
 
 	/**
@@ -48,9 +48,15 @@ public class AeropuertoServlet extends HttpServlet {
 		if ("/seleccionado".equals(request.getPathInfo())) {
 			String aeropuerto = request.getParameter("aerop");
 			AeropuertoServicio aerServ = new AeropuertoServicioImpl();
-			Aeropuerto objAeropuerto = aerServ.findByName(aeropuerto);
-			int puertas = objAeropuerto.getNumPuertas();
+			int puertas = aerServ.numPuertasEmbarque(aeropuerto);
 			request.getSession().setAttribute("puertas", puertas);
+			request.getRequestDispatcher("/numpuertas.jsp").forward(request, response);
+		} 	else if ("/puertas".equals(request.getPathInfo())) {
+			String aeropuerto = request.getParameter("aerop");
+			AeropuertoServicio aerServ = new AeropuertoServicioImpl();
+			int puertas = aerServ.numPuertasEmbarque(aeropuerto);
+			request.getSession().setAttribute("puertas", puertas);
+			request.getSession().setAttribute("aerop", aeropuerto);
 			request.getRequestDispatcher("/numpuertas.jsp").forward(request, response);
 		}
 	}

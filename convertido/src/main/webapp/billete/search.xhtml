@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{billeteBean.page}"/>
+		<f:event type="preRenderView" listener="#{billeteBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Billete entities"/>
+
+	<ui:define name="header">
+		Billete
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Billete entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="billeteBeanExampleIdBillete" value="Id Billete:"/>
+						<h:panelGroup>
+							<h:inputText id="billeteBeanExampleIdBillete" value="#{billeteBean.example.idBillete}"/>
+							<h:message for="billeteBeanExampleIdBillete" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="billeteBeanExampleAvion" value="Avion:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{avionBean.converter}" id="billeteBeanExampleAvion" value="#{billeteBean.example.avion}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{avionBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="billeteBeanExampleAvion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="billeteBeanExamplePasajero" value="Pasajero:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{pasajeroBean.converter}" id="billeteBeanExamplePasajero" value="#{billeteBean.example.pasajero}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{pasajeroBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="billeteBeanExamplePasajero" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="billeteBeanExampleCodgo" value="Codgo:"/>
+						<h:panelGroup>
+							<h:inputText id="billeteBeanExampleCodgo" maxLength="45" value="#{billeteBean.example.codgo}"/>
+							<h:message for="billeteBeanExampleCodgo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="billeteBeanExampleAsiento" value="Asiento:"/>
+						<h:panelGroup>
+							<h:inputText id="billeteBeanExampleAsiento" maxLength="10" value="#{billeteBean.example.asiento}"/>
+							<h:message for="billeteBeanExampleAsiento" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{billeteBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{billeteBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="billeteBeanPageItems" styleClass="data-table" value="#{billeteBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id Billete"/>
+					</f:facet>
+					<h:link outcome="/billete/view">
+						<f:param name="id" value="#{_item.idBillete}"/>
+						<h:outputText id="itemIdBillete" value="#{_item.idBillete}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codgo"/>
+					</f:facet>
+					<h:link outcome="/billete/view">
+						<f:param name="id" value="#{_item.idBillete}"/>
+						<h:outputText id="itemCodgo" value="#{_item.codgo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Estado"/>
+					</f:facet>
+					<h:link outcome="/billete/view">
+						<f:param name="id" value="#{_item.idBillete}"/>
+						<h:outputText id="itemEstado" value="#{_item.estado}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{billeteBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

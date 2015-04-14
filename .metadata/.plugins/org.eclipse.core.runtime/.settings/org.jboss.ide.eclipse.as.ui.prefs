@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-org.jboss.ide.eclipse.as.ui.defaultWebServer=Tomcat v8.0 Server at localhost
+org.jboss.ide.eclipse.as.ui.defaultWebServer=WildFly 8.x1428179629020
 org.jboss.ide.eclipse.as.ui.preferences.disabled.automatic.server.view=true
 org.jboss.ide.eclipse.as.ui.preferences.enabledDecorators.1=true
 org.jboss.ide.eclipse.as.ui.preferences.runtime.last.type.org.jboss.ide.eclipse.as.runtime.wildfly.80=/home/noa/Descargas/javaee/wildfly-8.2.0.Final

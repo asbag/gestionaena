@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{rutaBean.page}"/>
+		<f:event type="preRenderView" listener="#{rutaBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Ruta entities"/>
+
+	<ui:define name="header">
+		Ruta
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Ruta entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="rutaBeanExampleAeropuertoByAeropuertoIdAeropuerto" value="Aeropuerto By Aeropuerto Id Aeropuerto:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{aeropuertoBean.converter}" id="rutaBeanExampleAeropuertoByAeropuertoIdAeropuerto" value="#{rutaBean.example.aeropuertoByAeropuertoIdAeropuerto}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{aeropuertoBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="rutaBeanExampleAeropuertoByAeropuertoIdAeropuerto" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="rutaBeanExampleAeropuertoByAeropuertoIdAeropuerto1" value="Aeropuerto By Aeropuerto Id Aeropuerto 1:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{aeropuertoBean.converter}" id="rutaBeanExampleAeropuertoByAeropuertoIdAeropuerto1" value="#{rutaBean.example.aeropuertoByAeropuertoIdAeropuerto1}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{aeropuertoBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="rutaBeanExampleAeropuertoByAeropuertoIdAeropuerto1" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{rutaBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{rutaBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="rutaBeanPageItems" styleClass="data-table" value="#{rutaBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Aeropuerto By Aeropuerto Id Aeropuerto"/>
+					</f:facet>
+					<h:link outcome="/ruta/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemAeropuertoByAeropuertoIdAeropuerto" value="#{forgeview:display(_item.aeropuertoByAeropuertoIdAeropuerto)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Aeropuerto By Aeropuerto Id Aeropuerto 1"/>
+					</f:facet>
+					<h:link outcome="/ruta/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemAeropuertoByAeropuertoIdAeropuerto1" value="#{forgeview:display(_item.aeropuertoByAeropuertoIdAeropuerto1)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{rutaBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

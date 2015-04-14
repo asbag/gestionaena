@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_innova4b_Billete" idField="idBillete" modelAttribute="billete" path="/billetes" versionField="none" z="cI8OY84e5nAdMkgLPNt1i7CrcoE=">
+        <field:select field="avionIdAvion" id="c_com_innova4b_Billete_avionIdAvion" itemValue="idAvion" items="${avions}" path="/avions" z="ethFLm46qa1eTPJ+LM8033nqiTY="/>
+        <field:select field="pasajeroIdPasajero" id="c_com_innova4b_Billete_pasajeroIdPasajero" itemValue="idPasajero" items="${pasajeroes}" path="/pasajeroes" z="Nd7LCz1j3PJ4d5cJ6P83nJP3OHA="/>
+        <field:input field="codgo" id="c_com_innova4b_Billete_codgo" required="true" z="tTm+NRXvNIujVi3t4GJZqatid7U="/>
+        <field:input field="asiento" id="c_com_innova4b_Billete_asiento" z="Cy9Wf2EPfjyHnjZBkwkn0ftrQWs="/>
+        <field:datetime dateTimePattern="${billete_fecha_date_format}" field="fecha" id="c_com_innova4b_Billete_fecha" z="IJ0hKPK08YNpoMvnhKVrL8i0ic8="/>
+        <field:input field="estado" id="c_com_innova4b_Billete_estado" required="true" z="H+UJ4qFRxTGfuSB51+saCBH3aBc="/>
+    </form:update>
+</div>

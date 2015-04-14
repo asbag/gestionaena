@@ -563,4 +563,5 @@
   <uri name="http://jboss.com/products/seam/wicket-2.3.xsd" uri="jar:file:/home/noa/Descargas/javaee/eclipse/plugins/org.jboss.tools.seam.xml_3.6.2.Final-v20150325-0431-B95.jar!/schemas/wicket-2.3.xsd"/>
   <uri name="http://jboss.org/schema/seam/wicket-2.3.xsd" uri="jar:file:/home/noa/Descargas/javaee/eclipse/plugins/org.jboss.tools.seam.xml_3.6.2.Final-v20150325-0431-B95.jar!/schemas2/wicket-2.3.xsd"/>
   <public publicId="-//OASIS//DTD DocBook XML V4.1.2//EN" uri="file:/home/noa/Descargas/javaee/eclipse/plugins/org.jboss.tools.vpe.docbook_3.6.2.Final-v20150325-0347-B93/dtds/docbookx-4.1.2.dtd"/>
+  <system systemId="http://jboss.org/schema/arquillian/arquillian_1_0.xsd" uri="jar:file:/home/noa/Descargas/javaee/eclipse/plugins/org.jboss.tools.arquillian.ui_1.1.3.Final-v20141209-0427-B81.jar!/schemas/arquillian_1_0.xsd"/>
 </catalog>

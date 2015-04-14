@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value="#{avionBean.page}"/>
+		<f:event type="preRenderView" listener="#{avionBean.paginate}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Avion entities"/>
+
+	<ui:define name="header">
+		Avion
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Avion entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="avionBeanExampleIdAvion" value="Id Avion:"/>
+						<h:panelGroup>
+							<h:inputText id="avionBeanExampleIdAvion" value="#{avionBean.example.idAvion}"/>
+							<h:message for="avionBeanExampleIdAvion" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="avionBeanExampleEstado" value="Estado:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{estadoBean.converter}" id="avionBeanExampleEstado" value="#{avionBean.example.estado}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{estadoBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="avionBeanExampleEstado" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="avionBeanExampleCompania" value="Compania:"/>
+						<h:panelGroup>
+							<h:selectOneMenu converter="#{companiaBean.converter}" id="avionBeanExampleCompania" value="#{avionBean.example.compania}">
+								<f:selectItem/>
+								<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{companiaBean.all}" var="_item"/>
+							</h:selectOneMenu>
+							<h:message for="avionBeanExampleCompania" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="avionBeanExampleModelo" value="Modelo:"/>
+						<h:panelGroup>
+							<h:inputText id="avionBeanExampleModelo" maxLength="45" value="#{avionBean.example.modelo}"/>
+							<h:message for="avionBeanExampleModelo" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="avionBeanExampleMaxPasajeros" value="Max Pasajeros:"/>
+						<h:panelGroup>
+							<h:inputText id="avionBeanExampleMaxPasajeros" value="#{avionBean.example.maxPasajeros}"/>
+							<h:message for="avionBeanExampleMaxPasajeros" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action="#{avionBean.search}" styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action="#{avionBean.create}" styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="avionBeanPageItems" styleClass="data-table" value="#{avionBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id Avion"/>
+					</f:facet>
+					<h:link outcome="/avion/view">
+						<f:param name="id" value="#{_item.idAvion}"/>
+						<h:outputText id="itemIdAvion" value="#{_item.idAvion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modelo"/>
+					</f:facet>
+					<h:link outcome="/avion/view">
+						<f:param name="id" value="#{_item.idAvion}"/>
+						<h:outputText id="itemModelo" value="#{_item.modelo}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value="#{avionBean}"/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

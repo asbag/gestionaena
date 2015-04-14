@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_innova4b_Ruta" items="${rutas}" z="85O8ibhA1L5bFBdZD3nY9BHml7k=">
+        <table:table data="${rutas}" id="l_com_innova4b_Ruta" path="/rutas" z="cOZghq3RFNtl4wSMKvU4WJw4Hqo=">
+            <table:column id="c_com_innova4b_Ruta_companias" property="companias" z="GcIy2Wj4imGFejfGcQHZxvxsrdk="/>
+            <table:column id="c_com_innova4b_Ruta_avions" property="avions" z="j8fk+mbBl517mm7JNi+lQk1aqJk="/>
+            <table:column id="c_com_innova4b_Ruta_aeropuertoIdAeropuerto1" property="aeropuertoIdAeropuerto1" z="6Gt8efpCtudPBWao3GViCJIp3Ew="/>
+            <table:column id="c_com_innova4b_Ruta_aeropuertoIdAeropuerto" property="aeropuertoIdAeropuerto" z="MCS69uB/qjDn9vl1veEbBk2DG5g="/>
+        </table:table>
+    </page:list>
+</div>

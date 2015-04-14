@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_innova4b_Avion" object="${avion}" path="/avions" z="NpitdH8UDWwrJXJyjC0HBw9cShg=">
+        <field:display field="rutas" id="s_com_innova4b_Avion_rutas" object="${avion}" z="Vmd2WDN1d6a+DHn1V4O2/Mj6RU0="/>
+        <field:display field="companiaIdCompania" id="s_com_innova4b_Avion_companiaIdCompania" object="${avion}" z="2dnlB/6OHCFzchpJ/4BYBCCWH6A="/>
+        <field:display field="estadoIdestado" id="s_com_innova4b_Avion_estadoIdestado" object="${avion}" z="Rm8HnLEhpU3xUjMjA57EWkqVDCg="/>
+        <field:display field="modelo" id="s_com_innova4b_Avion_modelo" object="${avion}" z="EJBZqdAQHze90hvKw6BToH5XDMk="/>
+        <field:display field="maxPasajeros" id="s_com_innova4b_Avion_maxPasajeros" object="${avion}" z="NPn7eUSCdEZGEntp7Dq/6N0qeXg="/>
+        <field:display calendar="true" dateTimePattern="${avion_horasalida_date_format}" field="horaSalida" id="s_com_innova4b_Avion_horaSalida" object="${avion}" z="kDN7UibWP1soW/jl18jqtT1/59c="/>
+        <field:display calendar="true" dateTimePattern="${avion_horallegada_date_format}" field="horaLlegada" id="s_com_innova4b_Avion_horaLlegada" object="${avion}" z="k+kSpHHN3KI5MYb5BI2FyjayC0c="/>
+        <field:display field="codigoLicencia" id="s_com_innova4b_Avion_codigoLicencia" object="${avion}" z="l1H6dltxI700tenN6fh3Wm5Jyh8="/>
+        <field:display field="estadoLicencia" id="s_com_innova4b_Avion_estadoLicencia" object="${avion}" z="OpGHN2AWrWwK5nYOsuSW7nWmW0g="/>
+        <field:display date="true" dateTimePattern="${avion_caducidadlicencia_date_format}" field="caducidadLicencia" id="s_com_innova4b_Avion_caducidadLicencia" object="${avion}" z="bjvVGNUa2IGObKGoNbbRwmbTSg8="/>
+    </page:show>
+</div>

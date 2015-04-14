@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{avionBean.id}"/>
+		<f:event type="preRenderView" listener="#{avionBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Avion"/>
+
+	<ui:define name="header">
+		Avion
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Avion
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="avionBeanAvionIdAvion" value="Id Avion:"/>
+			<h:outputText id="avionBeanAvionIdAvion" value="#{avionBean.avion.idAvion}"/>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionEstado" value="Estado:"/>
+			<h:link id="avionBeanAvionEstado" outcome="/estado/view" value="#{avionBean.avion.estado}">
+				<f:param name="id" value="#{avionBean.avion.estado.idestado}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionCompania" value="Compania:"/>
+			<h:link id="avionBeanAvionCompania" outcome="/compania/view" value="#{avionBean.avion.compania}">
+				<f:param name="id" value="#{avionBean.avion.compania.idCompania}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionModelo" value="Modelo:"/>
+			<h:outputText id="avionBeanAvionModelo" value="#{avionBean.avion.modelo}"/>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionMaxPasajeros" value="Max Pasajeros:"/>
+			<h:outputText id="avionBeanAvionMaxPasajeros" value="#{avionBean.avion.maxPasajeros}"/>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionHoraSalida" value="Hora Salida:"/>
+			<h:outputText id="avionBeanAvionHoraSalida" value="#{avionBean.avion.horaSalida}">
+				<f:convertDateTime pattern="MMM d, yyyy hh:mm:ss a" type="both"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionHoraLlegada" value="Hora Llegada:"/>
+			<h:outputText id="avionBeanAvionHoraLlegada" value="#{avionBean.avion.horaLlegada}">
+				<f:convertDateTime pattern="MMM d, yyyy hh:mm:ss a" type="both"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionCodigoLicencia" value="Codigo Licencia:"/>
+			<h:outputText id="avionBeanAvionCodigoLicencia" value="#{avionBean.avion.codigoLicencia}"/>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionEstadoLicencia" value="Estado Licencia:"/>
+			<h:outputText id="avionBeanAvionEstadoLicencia" value="#{avionBean.avion.estadoLicencia}"/>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionCaducidadLicencia" value="Caducidad Licencia:"/>
+			<h:outputText id="avionBeanAvionCaducidadLicencia" value="#{avionBean.avion.caducidadLicencia}">
+				<f:convertDateTime type="date"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionRutas" value="Rutas:"/>
+			<h:dataTable id="avionBeanAvionRutas" styleClass="data-table" value="#{forgeview:asList(avionBean.avion.rutas)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Aeropuerto By Aeropuerto Id Aeropuerto"/>
+					</f:facet>
+					<h:link outcome="/ruta/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemAeropuertoByAeropuertoIdAeropuerto" value="#{forgeview:display(_item.aeropuertoByAeropuertoIdAeropuerto)}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Aeropuerto By Aeropuerto Id Aeropuerto 1"/>
+					</f:facet>
+					<h:link outcome="/ruta/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="forgeviewdisplayitemAeropuertoByAeropuertoIdAeropuerto1" value="#{forgeview:display(_item.aeropuertoByAeropuertoIdAeropuerto1)}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="avionBeanAvionBilletes" value="Billetes:"/>
+			<h:dataTable id="avionBeanAvionBilletes" styleClass="data-table" value="#{forgeview:asList(avionBean.avion.billetes)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id Billete"/>
+					</f:facet>
+					<h:link outcome="/billete/view">
+						<f:param name="id" value="#{_item.idBillete}"/>
+						<h:outputText id="itemIdBillete" value="#{_item.idBillete}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Codgo"/>
+					</f:facet>
+					<h:link outcome="/billete/view">
+						<f:param name="id" value="#{_item.idBillete}"/>
+						<h:outputText id="itemCodgo" value="#{_item.codgo}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Estado"/>
+					</f:facet>
+					<h:link outcome="/billete/view">
+						<f:param name="id" value="#{_item.idBillete}"/>
+						<h:outputText id="itemEstado" value="#{_item.estado}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

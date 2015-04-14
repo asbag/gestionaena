@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_innova4b_Billete" items="${billetes}" z="JGLbN4LF63icH7KUm+M+mI82e5w=">
+        <table:table data="${billetes}" id="l_com_innova4b_Billete" path="/billetes" typeIdFieldName="idBillete" z="SHgtd6l0wn0IMvWAsHlxEv6h9pA=">
+            <table:column id="c_com_innova4b_Billete_avionIdAvion" property="avionIdAvion" z="iEEnmVzV7NSnL3asrUeCp55PEqo="/>
+            <table:column id="c_com_innova4b_Billete_pasajeroIdPasajero" property="pasajeroIdPasajero" z="IK/5SrP37HZcP5WC8Gq5i03xuw0="/>
+            <table:column id="c_com_innova4b_Billete_codgo" property="codgo" z="iitMVWU29aeO2Oh8RlZZW4OO0VU="/>
+            <table:column id="c_com_innova4b_Billete_asiento" property="asiento" z="uosDi05thDOO2NN+uHb2HQ/f8oY="/>
+            <table:column calendar="true" dateTimePattern="${billete_fecha_date_format}" id="c_com_innova4b_Billete_fecha" property="fecha" z="XQZEou03QERVmmJTncCn40/2L9Q="/>
+            <table:column id="c_com_innova4b_Billete_estado" property="estado" z="6vgr5FQIqAI8boV67GHP2540c2o="/>
+        </table:table>
+    </page:list>
+</div>

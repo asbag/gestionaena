@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_innova4b_Estado" items="${estadoes}" z="n4o9gDpoKiZbN/i1pqwWZsZb7t4=">
+        <table:table data="${estadoes}" id="l_com_innova4b_Estado" path="/estadoes" typeIdFieldName="idestado" z="EuG4ismnACk6HsWdaUGGreHVWxA=">
+            <table:column id="c_com_innova4b_Estado_nombre" property="nombre" z="AmPDX3ZlrmFSr4K4Ltk1TVFQ+wg="/>
+        </table:table>
+    </page:list>
+</div>

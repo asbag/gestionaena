@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_innova4b_Estadoembarque" modelAttribute="estadoembarque" path="/estadoembarques" render="${empty dependencies}" z="jOu0bhkQ/QygHYdiaX2saI2XpKc=">
+        <field:input field="nombre" id="c_com_innova4b_Estadoembarque_nombre" required="true" z="GqVWdf3d0QqvpUYD1Z0olZ7ZR7Q="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_innova4b_Estadoembarque" render="${not empty dependencies}" z="U+AZ3sWqjSIXmoh4EoR7CjzspiA="/>
+</div>

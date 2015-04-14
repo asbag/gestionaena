@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_innova4b_Aeropuerto" idField="idAeropuerto" modelAttribute="aeropuerto" path="/aeropuertoes" versionField="none" z="nQUF3HLav/hsOwqk32RC47DzdWQ=">
+        <field:simple field="embarques" id="c_com_innova4b_Aeropuerto_embarques" messageCode="entity_reference_not_managed" messageCodeAttribute="Embarque" z="p1OkQJGa7/Jbu4iHBIYGFLXT0mg="/>
+        <field:simple field="rutas" id="c_com_innova4b_Aeropuerto_rutas" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruta" z="yknikJVMIgjufPZaOdQM9iCBILM="/>
+        <field:simple field="rutas1" id="c_com_innova4b_Aeropuerto_rutas1" messageCode="entity_reference_not_managed" messageCodeAttribute="Ruta" z="l6JzS7kobCFqzcqI4DpW1Yn9Slk="/>
+        <field:input field="nombre" id="c_com_innova4b_Aeropuerto_nombre" z="v7Zo4Jh3BNu45Z617uDXJ+BSpbA="/>
+        <field:input field="numPuertas" id="c_com_innova4b_Aeropuerto_numPuertas" validationMessageCode="field_invalid_integer" z="GvudMKhQBBJf346d6Hcx0gOE23M="/>
+        <field:input field="pais" id="c_com_innova4b_Aeropuerto_pais" z="27ZGcT+yKZ8AGIrT1Ocq95p91Ak="/>
+    </form:update>
+</div>

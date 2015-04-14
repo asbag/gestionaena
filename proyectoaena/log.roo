@@ -1,0 +1,81 @@
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 22:30:49
+hint
+project --topLevelPackage com.innova4b --projectName gestionAena 
+jpa setup --database MYSQL --provider HIBERNATE 
+entity jpa --class ~.model.Avion --testAutomatically 
+field number --fieldName idAvion --type java.lang.Long --notNull --unique 
+field string --fieldName modelo --sizeMax 45
+field number --fieldName maxPasajeros --type int --column max_pasajeros
+field date --fieldName horaSalida --column hora_salida --type java.util.Date
+field date --fieldName horaLlegada --column hora_llegada --type java.util.Date
+field string --fieldName codigoLicencia 
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 22:45:54
+hint
+project --topLevelPackage com.innova4b --projectName gestionAena
+jpa setup --database MYSQL --provider HIBERNATE 
+entity jpa --class ~.model.Avion --testAutomatically 
+field number --fieldName idAvion --type java.lang.Long --notNull --unique 
+field string --fieldName modelo --sizeMax 45
+field number --fieldName maxPasajeros --type int --column max_pasajeros
+field date --fieldName horaSalida --column hora_salida --type java.util.Date
+field date --fieldName horaLlegada --column hora_llegada --type java.util.Date
+field string --fieldName codigoLicencia --column codigo_licencia
+field number --fieldName estadoLicencia --column estado_licencia --type int
+field date --fieldName caducidadLicencia --type java.util.Date --column caducidad_licencia 
+// [failed] field set --fieldName rutas --type ~.model.Ruta --cardinality MANY_TO_MANY 
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 23:00:27
+entity jpa --class  ~.model.Ruta 
+field number --fieldName idRuta --type int --notNull --unique 
+field set --fieldName aviones --type ~.model.Avion --cardinality MANY_TO_MANY 
+field set --fieldName rutas --type ~.model.Ruta --cardinality MANY_TO_MANY 
+entity jpa --class ~.model.Aeropuerto --testAutomatically 
+field number --fieldName idAeropuerto --type java.lang.Long --notNull --unique 
+field string --fieldName nombre
+field number --fieldName numPuertas --column num_puertas --type int
+field string --fieldName pais 
+field reference --fieldName aeropuertoOrigen --type ~.model.Aeropuerto 
+field reference --fieldName aeropuertoDestino --type ~.model.Aeropuerto 
+field set --fieldName rutasOrigen --type ~.model.Ruta 
+field set --fieldName rutasDestino  --type ~.model.Ruta 
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 23:10:48
+entity jpa --class Embarque --testAutomatically 
+field number --fieldName idEmbarque --type java.lang.Long --notNull --unique 
+field number --fieldName numero --type int 
+field reference --fieldName aeropuerto --type ~.model.Aeropuerto 
+field set --fieldName embarques --type ~.Embarque
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 23:18:10
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 23:18:14
+entity jpa --class ~.model.Billete --testAutomatically 
+field number --fieldName idBillete --type java.lang.Long --notNull --unique 
+field string --fieldName codgo 
+field string --fieldName asiento 
+field date --fieldName fecha --type java.util.Date
+field string --fieldName estado 
+field reference --fieldName avion --type ~.model.Avion 
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log opened at 2015-04-13 23:24:27
+entity jpa --class ~.model.Pasajero --testAutomatically 
+field number --fieldName idPasajero --type java.lang.Long --notNull --unique 
+field string --fieldName nombre 
+field string --fieldName apellidos 
+field date --fieldName fechaNacimiento --column fecha_nacimiento --type java.util.Date
+field set --fieldName billetes --type ~.model.Billete --cardinality ONE_TO_MANY 
+field reference --fieldName pasajero --type ~.model.Pasajero
+entity jpa --class ~.model.Compania 
+field number --fieldName idCompania --notNull --unique --type java.lang.Long
+field string --fieldName nombre 
+field set --fieldName aviones --type ~.model.Avion --cardinality ONE_TO_MANY 
+field set --fieldName rutas --type ~.model.Ruta --cardinality MANY_TO_MANY 
+field set --fieldName rutas --type ~.model.Compania --cardinality MANY_TO_MANY 
+entity jpa --class ~.model.Estado --testAutomatically 
+field number --fieldName idEstado --type java.lang.Long --notNull --unique 
+field string --fieldName nombre 
+field set --fieldName aviones --type ~.model.Avion --cardinality ONE_TO_MANY 
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 23:45:02
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 23:45:06
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 23:45:09
+exit
+// Spring Roo 1.3.1.RELEASE [rev f4f5256] log closed at 2015-04-13 23:45:13

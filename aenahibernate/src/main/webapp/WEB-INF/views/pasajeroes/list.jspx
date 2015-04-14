@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_innova4b_Pasajero" items="${pasajeroes}" z="AJMNK/qVfL8SbkrMemM0mZb2Syg=">
+        <table:table data="${pasajeroes}" id="l_com_innova4b_Pasajero" path="/pasajeroes" typeIdFieldName="idPasajero" z="IqJsd7SRT0zcGImN3Qj+gm+n2q8=">
+            <table:column id="c_com_innova4b_Pasajero_nombre" property="nombre" z="14pBOWIxKSTdRFrXov7aE6VbSQY="/>
+            <table:column id="c_com_innova4b_Pasajero_apellidos" property="apellidos" z="zNar+1fbC1eLvywH5STsrX6Oo94="/>
+            <table:column date="true" dateTimePattern="${pasajero_fechanacimiento_date_format}" id="c_com_innova4b_Pasajero_fechaNacimiento" property="fechaNacimiento" z="bOISSnSly0I9nEWAVnvcS08ynJw="/>
+        </table:table>
+    </page:list>
+</div>

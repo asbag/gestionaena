@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:forgeview="http://jboss.org/forge/view"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{rutaBean.id}"/>
+		<f:event type="preRenderView" listener="#{rutaBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Ruta"/>
+
+	<ui:define name="header">
+		Ruta
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Ruta
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="rutaBeanRutaAeropuertoByAeropuertoIdAeropuerto" value="Aeropuerto By Aeropuerto Id Aeropuerto:"/>
+			<h:link id="rutaBeanRutaAeropuertoByAeropuertoIdAeropuerto" outcome="/home/noa/workspace/webapp/aeropuerto/view" value="#{rutaBean.ruta.aeropuertoByAeropuertoIdAeropuerto}">
+				<f:param name="id" value="#{rutaBean.ruta.aeropuertoByAeropuertoIdAeropuerto.idAeropuerto}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="rutaBeanRutaAeropuertoByAeropuertoIdAeropuerto1" value="Aeropuerto By Aeropuerto Id Aeropuerto 1:"/>
+			<h:link id="rutaBeanRutaAeropuertoByAeropuertoIdAeropuerto1" outcome="/home/noa/workspace/webapp/aeropuerto/view" value="#{rutaBean.ruta.aeropuertoByAeropuertoIdAeropuerto1}">
+				<f:param name="id" value="#{rutaBean.ruta.aeropuertoByAeropuertoIdAeropuerto1.idAeropuerto}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="rutaBeanRutaCompanias" value="Companias:"/>
+			<h:dataTable id="rutaBeanRutaCompanias" styleClass="data-table" value="#{forgeview:asList(rutaBean.ruta.companias)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id Compania"/>
+					</f:facet>
+					<h:link outcome="/home/noa/workspace/webapp/compania/view">
+						<f:param name="id" value="#{_item.idCompania}"/>
+						<h:outputText id="itemIdCompania" value="#{_item.idCompania}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+			<h:outputLabel for="rutaBeanRutaAvions" value="Avions:"/>
+			<h:dataTable id="rutaBeanRutaAvions" styleClass="data-table" value="#{forgeview:asList(rutaBean.ruta.avions)}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Id Avion"/>
+					</f:facet>
+					<h:link outcome="/home/noa/workspace/webapp/avion/view">
+						<f:param name="id" value="#{_item.idAvion}"/>
+						<h:outputText id="itemIdAvion" value="#{_item.idAvion}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Modelo"/>
+					</f:facet>
+					<h:link outcome="/home/noa/workspace/webapp/avion/view">
+						<f:param name="id" value="#{_item.idAvion}"/>
+						<h:outputText id="itemModelo" value="#{_item.modelo}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

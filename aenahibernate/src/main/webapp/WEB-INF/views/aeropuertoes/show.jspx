@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_innova4b_Aeropuerto" object="${aeropuerto}" path="/aeropuertoes" z="zz0/vArdsn8twI6Yyx8owgSN4IY=">
+        <field:display field="nombre" id="s_com_innova4b_Aeropuerto_nombre" object="${aeropuerto}" z="SZI+nrUTBOv1CWfKTuV+KwPP7kU="/>
+        <field:display field="numPuertas" id="s_com_innova4b_Aeropuerto_numPuertas" object="${aeropuerto}" z="J24q9um7mLLZMgD7oO8x8Ix8Ryc="/>
+        <field:display field="pais" id="s_com_innova4b_Aeropuerto_pais" object="${aeropuerto}" z="0RJNSMyZ/N7NqPqC+NSH6fWQv9Y="/>
+    </page:show>
+</div>

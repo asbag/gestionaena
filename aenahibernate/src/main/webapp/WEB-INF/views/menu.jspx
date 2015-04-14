@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:menu="urn:jsptagdir:/WEB-INF/tags/menu" id="menu" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
+        <menu:category id="c_ruta" z="e8Ru4EubkQGfbLXvWw+KLo3H6xI=">
+            <menu:item id="i_ruta_new" messageCode="global_menu_new" url="/rutas?form" z="UppdS8TKQi7AWxy5tPWOuNnaxQk="/>
+            <menu:item id="i_ruta_list" messageCode="global_menu_list" url="/rutas?page=1&amp;size=${empty param.size ? 10 : param.size}" z="vD6Qztbl0In75n3pWshtgekCHig="/>
+        </menu:category>
+        <menu:category id="c_estado" z="R0VnER9YYkIt+dO11st4rxP96qg=">
+            <menu:item id="i_estado_new" messageCode="global_menu_new" url="/estadoes?form" z="ycg0kAs5SJ41KTsAQHflCSNyXf0="/>
+            <menu:item id="i_estado_list" messageCode="global_menu_list" url="/estadoes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="/PJMqPVs73Y+7l/7KDQDkMo0E5E="/>
+        </menu:category>
+        <menu:category id="c_pasajero" z="1dOzuhzgE+VGNdU8DKENmNFaOHI=">
+            <menu:item id="i_pasajero_new" messageCode="global_menu_new" url="/pasajeroes?form" z="Z04f9c0pIb77HGj6l/KMoEciceg="/>
+            <menu:item id="i_pasajero_list" messageCode="global_menu_list" url="/pasajeroes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1uBNdkVWpE0XOufzOL0azl5Z3t4="/>
+        </menu:category>
+        <menu:category id="c_avion" z="60dWmw9tXIl+7e3fvhuyftYuL1Q=">
+            <menu:item id="i_avion_new" messageCode="global_menu_new" url="/avions?form" z="rofkGY+BHXbAbq4HTyzSduKQqwQ="/>
+            <menu:item id="i_avion_list" messageCode="global_menu_list" url="/avions?page=1&amp;size=${empty param.size ? 10 : param.size}" z="IpRsqfN8h4FhHDWa3Amba0NkHC4="/>
+        </menu:category>
+        <menu:category id="c_estadoembarque" z="+tLJyOjP2u5fvQ0mD5YMDBZqfR8=">
+            <menu:item id="i_estadoembarque_new" messageCode="global_menu_new" url="/estadoembarques?form" z="VvpUXEEiTzM5fv+3CNRTCKBi2Z0="/>
+            <menu:item id="i_estadoembarque_list" messageCode="global_menu_list" url="/estadoembarques?page=1&amp;size=${empty param.size ? 10 : param.size}" z="16HxJvmZIa03xBj6RFno+HdgLQ0="/>
+        </menu:category>
+        <menu:category id="c_billete" z="xSUO7S6VFVMzEBtt8BlJ7K5tohg=">
+            <menu:item id="i_billete_new" messageCode="global_menu_new" url="/billetes?form" z="U8kZ6z+pZZZGey+y4DjQlZRGUSY="/>
+            <menu:item id="i_billete_list" messageCode="global_menu_list" url="/billetes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ztEI57E8w0pJrEkmzj9+laLY6Xw="/>
+        </menu:category>
+        <menu:category id="c_compania" z="FuoLT45HS5K+/WGSgCYcBe0v5uc=">
+            <menu:item id="i_compania_new" messageCode="global_menu_new" url="/companias?form" z="cdfybbuHvpGtlhhYTxPGbM+1Wd4="/>
+            <menu:item id="i_compania_list" messageCode="global_menu_list" url="/companias?page=1&amp;size=${empty param.size ? 10 : param.size}" z="4hy3WmkekkZrFBC3YgD1hEGyCV4="/>
+        </menu:category>
+        <menu:category id="c_aeropuerto" z="Vzkb51f0d9MRnqSnqfl0+V7qhbY=">
+            <menu:item id="i_aeropuerto_new" messageCode="global_menu_new" url="/aeropuertoes?form" z="4zZNIXP123fF6p2yVh9O09rHfNA="/>
+            <menu:item id="i_aeropuerto_list" messageCode="global_menu_list" url="/aeropuertoes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Tjg8TU6MzlaCFkxAoi6rXFR/hMM="/>
+        </menu:category>
+        <menu:category id="c_embarque" z="vVqe/w0PFyaqbLchxO6U/THNzrw=">
+            <menu:item id="i_embarque_new" messageCode="global_menu_new" url="/embarques?form" z="acSS5MCwVsnAkz6Zll9p7eCC6y8="/>
+            <menu:item id="i_embarque_list" messageCode="global_menu_list" url="/embarques?page=1&amp;size=${empty param.size ? 10 : param.size}" z="X5QLAMdGk+2i4D/nVhTUURoAl9c="/>
+        </menu:category>
+    </menu:menu>
+</div>

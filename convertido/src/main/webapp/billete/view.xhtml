@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{billeteBean.id}"/>
+		<f:event type="preRenderView" listener="#{billeteBean.retrieve}"/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Billete"/>
+
+	<ui:define name="header">
+		Billete
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Billete
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="billeteBeanBilleteIdBillete" value="Id Billete:"/>
+			<h:outputText id="billeteBeanBilleteIdBillete" value="#{billeteBean.billete.idBillete}"/>
+			<h:outputText/>
+			<h:outputLabel for="billeteBeanBilleteAvion" value="Avion:"/>
+			<h:link id="billeteBeanBilleteAvion" outcome="/avion/view" value="#{billeteBean.billete.avion}">
+				<f:param name="id" value="#{billeteBean.billete.avion.idAvion}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="billeteBeanBilletePasajero" value="Pasajero:"/>
+			<h:link id="billeteBeanBilletePasajero" outcome="/pasajero/view" value="#{billeteBean.billete.pasajero}">
+				<f:param name="id" value="#{billeteBean.billete.pasajero.idPasajero}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="billeteBeanBilleteCodgo" value="Codgo:"/>
+			<h:outputText id="billeteBeanBilleteCodgo" value="#{billeteBean.billete.codgo}"/>
+			<h:outputText/>
+			<h:outputLabel for="billeteBeanBilleteAsiento" value="Asiento:"/>
+			<h:outputText id="billeteBeanBilleteAsiento" value="#{billeteBean.billete.asiento}"/>
+			<h:outputText/>
+			<h:outputLabel for="billeteBeanBilleteFecha" value="Fecha:"/>
+			<h:outputText id="billeteBeanBilleteFecha" value="#{billeteBean.billete.fecha}">
+				<f:convertDateTime pattern="MMM d, yyyy hh:mm:ss a" type="both"/>
+			</h:outputText>
+			<h:outputText/>
+			<h:outputLabel for="billeteBeanBilleteEstado" value="Estado:"/>
+			<h:outputText id="billeteBeanBilleteEstado" value="#{billeteBean.billete.estado}"/>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>
