@@ -1,0 +1,12 @@
+package com.innova4b.servicio;
+
+import java.util.List;
+
+import com.innova4b.listas.ListaAviones;
+
+public interface AvionServicio {
+	public List<String> listarAvionesCaducados();
+	
+	public List<String> listarAvionesEspanioles();
+
+}

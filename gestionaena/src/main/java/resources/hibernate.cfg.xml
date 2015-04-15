@@ -22,5 +22,11 @@
 		<mapping class="com.innova4b.modelo.Avion" />
 		<mapping class="com.innova4b.modelo.Ruta" />
 		<mapping class="com.innova4b.modelo.Aeropuerto" />
+		<mapping class="com.innova4b.modelo.Billete" />
+		<mapping class="com.innova4b.modelo.Compania" />
+		<mapping class="com.innova4b.modelo.Estado" />
+		<mapping class="com.innova4b.modelo.Pasajero" />
+		<mapping class="com.innova4b.modelo.PuertaEmbarque" />
+		<mapping class="com.innova4b.modelo.EstadoEmbarque" />
 	</session-factory>
 </hibernate-configuration>

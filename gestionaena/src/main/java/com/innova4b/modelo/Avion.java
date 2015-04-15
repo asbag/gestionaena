@@ -5,6 +5,9 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.FetchType;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,7 +16,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 
@@ -25,7 +33,7 @@ public class Avion implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="idAvion")
 	private Integer id = null;
 
@@ -35,20 +43,23 @@ public class Avion implements Serializable {
 	@Column(name="max_pasajeros")
 	private int maxPasajeros;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_salida")
-	private Timestamp horaSalida;
+	private Date horaSalida;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_llegada")
-	private Timestamp horaLlegada;
+	private Date horaLlegada;
 
 	@Column(name="codigo_licencia")
-	private int codigoLicencia;
+	private String codigoLicencia;
 
 	@Column(name="estado_licencia")
 	private boolean estadoLicencia;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="caducidad_licencia")
-	private Date caducidadLicencia;
+	private java.util.Date caducidadLicencia;
 
 	@ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(name="ruta_has_avion", 
@@ -56,6 +67,19 @@ public class Avion implements Serializable {
                 inverseJoinColumns={@JoinColumn(name="avion_idAvion")})
 	private Set<Ruta> rutas = new HashSet<Ruta>();
 	
+	@OneToMany(mappedBy="avion")
+	private Set<Billete> billetes;
+	
+	@ManyToOne
+	@JoinColumn(name="compania_idCompania", nullable=true)
+	private Compania compania;
+	
+	@ManyToOne
+	@JoinColumn(name="estado_idestado", nullable=true)
+	private Estado estado;
+	
+	@OneToOne(fetch = FetchType.LAZY, mappedBy = "avion", cascade = CascadeType.ALL)
+	private PuertaEmbarque embarque;
 	
 	public Integer getId() {
 		return id;
@@ -86,32 +110,32 @@ public class Avion implements Serializable {
 	}
 
 
-	public Timestamp getHoraSalida() {
+	public Date getHoraSalida() {
 		return horaSalida;
 	}
 
 
-	public void setHoraSalida(Timestamp horaSalida) {
+	public void setHoraSalida(Date horaSalida) {
 		this.horaSalida = horaSalida;	
 	}
 
 
-	public Timestamp getHoraLlegada() {
+	public Date getHoraLlegada() {
 		return horaLlegada;
 	}
 
 
-	public void setHoraLlegada(Timestamp horaLlegada) {
+	public void setHoraLlegada(Date horaLlegada) {
 		this.horaLlegada = horaLlegada;
 	}
 
 
-	public int getCodigoLicencia() {
+	public String getCodigoLicencia() {
 		return codigoLicencia;
 	}
 
 
-	public void setCodigoLicencia(int codigoLicencia) {
+	public void setCodigoLicencia(String codigoLicencia) {
 		this.codigoLicencia = codigoLicencia;
 	}
 
@@ -143,5 +167,35 @@ public class Avion implements Serializable {
 		this.rutas = rutas;
 	}
 
+	public Set<Billete> getBilletes() {
+		return billetes;
+	}
 
+	public void setBilletes(Set<Billete> billetes) {
+		this.billetes = billetes;
+	}
+
+	public Compania getCompania() {
+		return compania;
+	}
+
+	public void setCompania(Compania compania) {
+		this.compania = compania;
+	}
+
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	public PuertaEmbarque getEmbarque() {
+		return embarque;
+	}
+
+	public void setEmbarque(PuertaEmbarque embarque) {
+		this.embarque = embarque;
+	}
 }

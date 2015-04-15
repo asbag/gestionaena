@@ -7,6 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.innova4b.modelo.Avion;
 import com.innova4b.servicio.AvionServicio;
 import com.innova4b.sessionfactory.HibernateUtil;
 
@@ -50,11 +51,92 @@ public class AvionServicioImpl implements AvionServicio {
 			Transaction transaction = session.beginTransaction();
 			query = session.createQuery(hql).setString("pais", "ES");
 			list = query.list();
+			transaction.commit();
 		} catch (HibernateException e){
 			e.printStackTrace();
 		}
 
 		return list;
+	}
+
+	@Override
+	public List<String> listarAviones() {
+		Query query = null;
+		Session session = null;
+		List<String> list = null;
+
+		try{
+			String hql = "select A.modelo from Avion A";
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			query = session.createQuery(hql);
+			list = query.list();
+			transaction.commit();
+		} catch (HibernateException e){
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
+	@Override
+	public Integer numAsientosReservados(String avion) {
+		Query query = null;
+		Session session = null;
+		List<Integer> list = null;
+		Integer resultado = null;
+		
+		try{
+			String hql = "select cast(count(B.codgo) as int) from Billete B left join B.avion A where A.modelo = :avion";
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			query = session.createQuery(hql).setString("avion", avion);
+			list = (List<Integer>)query.list();
+			resultado = list.get(0);
+			transaction.commit();
+		} catch (HibernateException e){
+			e.printStackTrace();
+		}
+
+		return resultado;
+	}
+
+	@Override
+	public Integer numAsientosOcupados(String avion) {
+		Query query = null;
+		Session session = null;
+		List<Integer> list = null;
+		Integer resultado = null;
+		
+		try{
+			String hql = "select cast(count(B.codgo) as int) from Billete B left join B.avion A where A.modelo = :avion and B.estado = :estado";
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			query = session.createQuery(hql).setString("avion", avion).setString("estado", "si");
+			list = (List<Integer>)query.list();
+			resultado = list.get(0);
+			transaction.commit();
+		} catch (HibernateException e){
+			e.printStackTrace();
+		}
+
+		return resultado;
+	}
+
+	@Override
+	public void insertarAvion(Avion avion) {
+		List<Integer> list = null;
+		Integer resultado = null;
+		Query query = null;
+		Session session = null;
+		session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Transaction transaction = session.beginTransaction();
+		String hql = "select cast(count(A.modelo) as int) from Avion A where A.modelo = :modelo or A.codigoLicencia = :codgoLicencia";
+		query = session.createQuery(hql).setString("modelo", avion.getModelo()).setString("codgoLicencia", avion.getCodigoLicencia());
+		list = (List<Integer>)query.list();
+		resultado = list.get(0);
+		if (resultado == 0) session.save(avion);
+		transaction.commit();
 	}
 
 }

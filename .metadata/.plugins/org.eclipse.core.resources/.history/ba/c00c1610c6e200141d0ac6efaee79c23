@@ -1,0 +1,53 @@
+package com.innova4b.modelo;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name = "billete")
+public class Billete implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id @GeneratedValue
+	@Column(name="idBillete")
+	private Long id = null;
+
+	@Column(name="codgo")
+	private String codgo;
+
+	@Column(name="asiento")
+	private String asiento;
+
+	@Column(name="fecha")
+	private Timestamp fecha;
+
+	@Column(name="estado")
+	private String estado;
+
+
+
+	@ManyToOne
+	@JoinColumn(name="avion_idAvion")
+	private Avion avion;
+	
+
+}

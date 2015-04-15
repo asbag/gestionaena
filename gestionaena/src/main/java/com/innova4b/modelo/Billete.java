@@ -1,0 +1,103 @@
+package com.innova4b.modelo;
+
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name = "billete")
+public class Billete implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id @GeneratedValue
+	@Column(name="idBillete")
+	private Long id = null;
+
+	@Column(name="codgo")
+	private String codgo;
+
+	@Column(name="asiento")
+	private String asiento;
+
+	@Column(name="fecha")
+	private Timestamp fecha;
+
+	@Column(name="estado")
+	private String estado;
+
+	@ManyToOne
+	@JoinColumn(name="avion_idAvion")
+	private Avion avion;
+
+	@ManyToOne
+	@JoinColumn(name="pasajero_idPasajero")
+	private Avion pasajero;
+	
+	public Long getId() {
+		return id;
+	}
+
+	protected void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getCodgo() {
+		return codgo;
+	}
+
+	public void setCodgo(String codgo) {
+		this.codgo = codgo;
+	}
+
+	public String getAsiento() {
+		return asiento;
+	}
+
+	public void setAsiento(String asiento) {
+		this.asiento = asiento;
+	}
+
+	public Timestamp getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Timestamp fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public Avion getAvion() {
+		return avion;
+	}
+
+	public void setAvion(Avion avion) {
+		this.avion = avion;
+	}
+	
+
+}

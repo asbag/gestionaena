@@ -37,7 +37,7 @@ public class AeropuertoServlet extends HttpServlet {
 			AeropuertoServicio as = new AeropuertoServicioImpl();
 			List<String> listaAeropuertos = as.obtenerAeropuertos();
 			request.getSession().setAttribute("listaAeropuertos",listaAeropuertos);
-			request.getRequestDispatcher("/listaaeropuertos.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/aeropuerto/listaaeropuertos.jsp").forward(request, response);
 		}
 	}
 
@@ -50,15 +50,9 @@ public class AeropuertoServlet extends HttpServlet {
 			AeropuertoServicio aerServ = new AeropuertoServicioImpl();
 			int puertas = aerServ.numPuertasEmbarque(aeropuerto);
 			request.getSession().setAttribute("puertas", puertas);
-			request.getRequestDispatcher("/numpuertas.jsp").forward(request, response);
-		} 	else if ("/puertas".equals(request.getPathInfo())) {
-			String aeropuerto = request.getParameter("aerop");
-			AeropuertoServicio aerServ = new AeropuertoServicioImpl();
-			int puertas = aerServ.numPuertasEmbarque(aeropuerto);
-			request.getSession().setAttribute("puertas", puertas);
 			request.getSession().setAttribute("aerop", aeropuerto);
-			request.getRequestDispatcher("/numpuertas.jsp").forward(request, response);
-		}
+			request.getRequestDispatcher("/WEB-INF/views/aeropuerto/numpuertas.jsp").forward(request, response);
+		} 
 	}
 
 }

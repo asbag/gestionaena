@@ -38,6 +38,9 @@ public class Aeropuerto implements Serializable {
 	@OneToMany(mappedBy="aeropuertoDestino")
 	private Set<Ruta> rutaDestino;
 
+	@OneToMany(mappedBy="aeropuerto")
+	private Set<PuertaEmbarque> embarques;
+
 	public Long getId() {
 		return id;
 	}
@@ -74,6 +77,12 @@ public class Aeropuerto implements Serializable {
 	}
 	public void setRutaDestino(Set<Ruta> rutaDestino) {
 		this.rutaDestino = rutaDestino;
+	}
+	public Set<PuertaEmbarque> getEmbarques() {
+		return embarques;
+	}
+	public void setEmbarques(Set<PuertaEmbarque> embarques) {
+		this.embarques = embarques;
 	}
 
 	

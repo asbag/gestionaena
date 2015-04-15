@@ -1,0 +1,43 @@
+package com.innova4b.modelo;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="embarque")
+public class PuertaEmbarque implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id @GeneratedValue
+	@Column(name="idEmbarque")
+	private Long id = null;
+	
+	@Column(name="num")
+	private String num;
+
+	@ManyToOne
+	@JoinColumn(name="aeropuerto_idAeropuerto")
+	private Aeropuerto aeropuerto;
+	
+	public Long getId() {
+		return id;
+	}
+
+	protected void setId(Long id) {
+		this.id = id;
+	}
+	
+}

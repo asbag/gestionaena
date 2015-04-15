@@ -68,11 +68,11 @@ public class AeropuertoServicioImpl implements AeropuertoServicio {
 		Query query = null;
 		Session session = null;
 		try {
-			String hql = "select A.numPuertas from Avion A where A.nombre = :nombre";
+			String hql = "select A.numPuertas from Aeropuerto A where A.nombre = :nombre";
 			session = HibernateUtil.getSessionFactory().getCurrentSession();
 			Transaction transaction = session.beginTransaction();
 			query = session.createQuery(hql).setString("nombre", nombre);
-			list = query.list();
+			list = (List<Integer>)query.list();
 			transaction.commit();
 		} catch (HibernateException e) {
 			System.out.println("Exception in HqlQuery");

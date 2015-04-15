@@ -32,8 +32,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
-			<item value="/home/noa/workspace/convertido"/>
 			<item value="/home/noa/workspace/gestionaena"/>
+			<item value="/home/noa/workspace/convertido"/>
 			<item value="/home/noa/Descargas/Proyectos/aena"/>
 		</list>
 		<list key="projectNameTemplate">

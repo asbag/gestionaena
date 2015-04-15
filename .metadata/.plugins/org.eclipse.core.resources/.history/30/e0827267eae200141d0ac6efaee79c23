@@ -1,0 +1,124 @@
+package com.innova4b.controlador;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.innova4b.listas.ListaAviones;
+import com.innova4b.modelo.Avion;
+import com.innova4b.servicio.AeropuertoServicio;
+import com.innova4b.servicio.AvionServicio;
+import com.innova4b.servicio.impl.AeropuertoServicioImpl;
+import com.innova4b.servicio.impl.AvionServicioImpl;
+
+/**
+ * Servlet implementation class AvionServlet
+ */
+public class AvionServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AvionServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		if ("/listar_caducados".equals(request.getPathInfo())){
+			AvionServicio as = new AvionServicioImpl();
+			List<String> listAviones = as.listarAvionesCaducados();
+			request.getSession().setAttribute("listAviones",listAviones);
+			request.getRequestDispatcher("/listavcaduc.jsp").forward(request, response);
+		} else if ("/listar_espanioles".equals(request.getPathInfo())) {
+			AvionServicio as = new AvionServicioImpl();
+			List<String> listAviones = as.listarAvionesEspanioles();
+			request.getSession().setAttribute("listAviones",listAviones);
+			request.getRequestDispatcher("/listavcaduc.jsp").forward(request, response);
+		} else if ("/num_asientos".equals(request.getPathInfo())) {
+			AvionServicio as = new AvionServicioImpl();
+			List<String> listaAviones = as.listarAviones();
+			request.getSession().setAttribute("listaAviones",listaAviones);
+			request.getRequestDispatcher("/listaaviones.jsp").forward(request, response);
+		} else if ("/num_asientos_ocupados".equals(request.getPathInfo())) {
+			AvionServicio as = new AvionServicioImpl();
+			List<String> listaAviones = as.listarAviones();
+			request.getSession().setAttribute("listaAviones",listaAviones);
+			request.getRequestDispatcher("/listaaviones2.jsp").forward(request, response);
+		} else if ("/insercion".equals(request.getPathInfo())) {
+			request.getRequestDispatcher("/WEB-INF/views/formAvion.jsp").forward(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if ("/seleccionado".equals(request.getPathInfo())) {
+			String avion = request.getParameter("avion");
+			AvionServicio avionServ = new AvionServicioImpl();
+			Integer asientos = avionServ.numAsientosReservados(avion);
+			request.getSession().setAttribute("asientos", asientos);
+			request.getSession().setAttribute("avion", avion);
+			request.getRequestDispatcher("/numasientosreservados.jsp").forward(request, response);
+		} else if ("/seleccionado_ocupado".equals(request.getPathInfo())) {
+			String avion = request.getParameter("avion");
+			AvionServicio avionServ = new AvionServicioImpl();
+			Integer asientos = avionServ.numAsientosOcupados(avion);
+			request.getSession().setAttribute("asientos", asientos);
+			request.getSession().setAttribute("avion", avion);
+			request.getRequestDispatcher("/numasientosocupados.jsp").forward(request, response);
+		} else if ("/insercion_mapear".equals(request.getPathInfo())) {
+			String modelo = request.getParameter("modelo");
+			String max_pasajeros = request.getParameter("max_pasajeros");
+			String hora_salida = request.getParameter("hora_salida");
+			String hora_llegada = request.getParameter("hora_llegada");
+			String codgo_licencia = request.getParameter("codgo_licencia");
+			String estado_licencia = request.getParameter("estado_licencia");
+			String caducidad_licencia = request.getParameter("caducidad_licencia");
+			
+			Avion avion = new Avion();
+			int maxPasajeros = 0;
+			avion.setModelo(modelo);
+			if (max_pasajeros != "" && max_pasajeros != null) {
+				maxPasajeros = Integer.parseInt(max_pasajeros);
+			}
+			avion.setMaxPasajeros(maxPasajeros);
+			
+			
+			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			try {
+				Date horaSalida = sdf.parse(hora_salida);
+				Date horaLlegada = sdf.parse(hora_llegada);
+				avion.setHoraLlegada(horaLlegada);
+				avion.setHoraSalida(horaSalida);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			int codigoLicencia = Integer.parseInt(codgo_licencia);
+			avion.setCodigoLicencia(codigoLicencia);
+			
+			
+		
+			request.getRequestDispatcher("/numasientosocupados.jsp").forward(request, response);
+		} 
+	}
+
+}
