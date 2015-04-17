@@ -1,0 +1,39 @@
+package com.innova4b.servicio.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.innova4b.modelo.Avion;
+import com.innova4b.servicio.AvionServicio;
+import com.innova4b.servicio.PasajeroServicio;
+import com.innova4b.sessionfactory.HibernateUtil;
+
+public class PasajeroServicioImpl implements PasajeroServicio {
+	//Listar aviones con licencia caducada
+	Session session;
+
+	@Override
+	public List<Pasajero> listarPasajeros() {
+		Query query = null;
+		Session session = null;
+		List<String> list = null;
+
+		try{
+			String hql = "from Pasajero P";
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			query = session.createQuery(hql);
+			list = query.list();
+			transaction.commit();
+		} catch (HibernateException e){
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+
+}

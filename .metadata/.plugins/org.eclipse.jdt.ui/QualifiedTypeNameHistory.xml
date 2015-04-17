@@ -40,4 +40,15 @@
 <fullyQualifiedTypeName name="javax.persistence.TemporalType"/>
 <fullyQualifiedTypeName name="com.innova4b.modelo.Avion"/>
 <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+<fullyQualifiedTypeName name="com.innova4b.servicio.impl.PasajeroServicioImpl"/>
+<fullyQualifiedTypeName name="com.innova4b.servicio.PasajeroServicio"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.OnDelete"/>
+<fullyQualifiedTypeName name="org.hibernate.annotations.OnDeleteAction"/>
+<fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+<fullyQualifiedTypeName name="com.innova4b.servicio.BilleteServicio"/>
+<fullyQualifiedTypeName name="com.innova4b.modelo.Pasajero"/>
+<fullyQualifiedTypeName name="com.innova4b.servicio.impl.BilleteServicioImpl"/>
+<fullyQualifiedTypeName name="com.innova4b.modelo.Billete"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="org.hibernate.Hibernate"/>
 </qualifiedTypeNameHistroy>

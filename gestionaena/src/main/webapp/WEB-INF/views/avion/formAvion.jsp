@@ -10,30 +10,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Actividad 1</title>
-
-<script type="text/javascript">
-	$(function() {
-		$('#datetimepicker1').datetimepicker();
-	});
-</script>
 <!-- Bootstrap core JS -->
-<script src="${pageContext.request.contextPath}/js/jquery-1.10.2.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-<script src="${pageContext.request.contextPath}/js/moment.js"></script>
-<script
-	src="${pageContext.request.contextPath}/js/bootstrap-datetimepicker.js"></script>
-<!-- Bootstrap core CSS -->
+<link href="${pageContext.request.contextPath}/css/bootstrap.min.css"
+	rel="stylesheet" media="screen">
 <link
-	href="${pageContext.request.contextPath}/css/bootstrap-datetimepicker.css"
-	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/css/bootstrap.css"
-	rel="stylesheet">
+	href="${pageContext.request.contextPath}/css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
 </head>
 <body>
 	<div class="collapse navbar-collapse navbar-ex1-collapse">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="${pageContext.request.contextPath}">Atr&aacute;s</a></li>
-	</ul>
+		</ul>
 	</div>
 	<form class="form-horizontal" role="form"
 		action="${pageContext.request.contextPath}/avion/insercion_mapear"
@@ -58,7 +46,7 @@
 				Salida</label>
 			<div class="col-sm-10">
 				<input name="hora_salida" type="text" class="form-control"
-					id="hora_salida" placeholder="Hora de Salida">
+					id="hora_salida" placeholder="Hora de Salida: ej(02/03/2015 08:45)">
 			</div>
 		</div>
 		<div class="form-group">
@@ -66,7 +54,8 @@
 				Llegada</label>
 			<div class="col-sm-10">
 				<input name="hora_llegada" type="text" class="form-control"
-					id="hora_llegada" placeholder="Hora de Llegada">
+					id="hora_llegada"
+					placeholder="Hora de Llegada: ej(02/03/2015 08:45)">
 			</div>
 		</div>
 		<div class="form-group">
@@ -81,8 +70,11 @@
 			<label for="estado_licencia" class="col-sm-2 control-label">Estado
 				Licencia</label>
 			<div class="col-sm-10">
-				<input name="estado_licencia" type="text" class="form-control"
-					id="estado_licencia" placeholder="Estado licencia">
+				<select id="estado_licencia" name="estado_licencia"
+					class="form-control">
+						<option value="1">Activo</option>
+						<option value="0">Caducado</option>
+				</select>
 			</div>
 		</div>
 		<div class="form-group">
@@ -100,17 +92,17 @@
 		<div class="form-group">
 			<label for="estado_licencia" class="col-sm-2 control-label">Caducidad
 				Licencia</label>
-			<div class="row">
-				<div class='col-sm-6'>
-					<input name="caducidad_licencia" type='text' class="form-control"
-						id='diahora' />
-				</div>
+			<div class="col-sm-10">
+				<input name="caducidad_licencia" type="text" class="form-control"
+					id="caducidad_licencia"
+					placeholder="Caducidad Licencia: ej(02/03/2015 08:45)">
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
+				<input type="hidden" name="pasajero" value="${pasajero.id}">
 				<button type="submit" class="btn btn-default">Insertar
-					Avi&oacute;n</button>
+					Avión</button>
 			</div>
 		</div>
 	</form>
@@ -118,8 +110,49 @@
 	<!-- Librería jQuery requerida por los plugins de JavaScript -->
 	<script src="http://code.jquery.com/jquery.js"></script>
 
-	<!-- Todos los plugins JavaScript de Bootstrap (también puedes
-         incluir archivos JavaScript individuales de los únicos
-         plugins que utilices) -->
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/jquery-1.8.3.min.js"
+		charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/bootstrap-datetimepicker.js"
+		charset="UTF-8"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/js/locales/bootstrap-datetimepicker.fr.js"
+		charset="UTF-8"></script>
+	<script type="text/javascript">
+		$('.form_datetime').datetimepicker({
+			//language:  'fr',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 2,
+			forceParse : 0,
+			showMeridian : 1
+		});
+		$('.form_date').datetimepicker({
+			language : 'fr',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 2,
+			minView : 2,
+			forceParse : 0
+		});
+		$('.form_time').datetimepicker({
+			language : 'fr',
+			weekStart : 1,
+			todayBtn : 1,
+			autoclose : 1,
+			todayHighlight : 1,
+			startView : 1,
+			minView : 0,
+			maxView : 1,
+			forceParse : 0
+		});
+	</script>
 </body>
 </html>

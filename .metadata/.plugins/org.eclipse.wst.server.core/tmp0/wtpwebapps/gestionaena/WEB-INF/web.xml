@@ -20,7 +20,16 @@
 		<servlet-name>Aeropuerto</servlet-name>
 		<url-pattern>/aeropuerto/*</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>Pasajero</servlet-name>
+		<servlet-class>com.innova4b.controlador.PasajeroServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Pasajero</servlet-name>
+		<url-pattern>/pasajero/*</url-pattern>
+	</servlet-mapping>	
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 </web-app>

@@ -50,6 +50,6 @@ public class CompaniaServicioImpl implements CompaniaServicio {
 			e.printStackTrace();
 		}
 
-		return compania;
+		return list.get(0);
 	}
 }

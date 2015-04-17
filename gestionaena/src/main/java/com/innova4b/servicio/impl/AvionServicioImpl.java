@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.innova4b.modelo.Avion;
+import com.innova4b.modelo.Pasajero;
 import com.innova4b.servicio.AvionServicio;
 import com.innova4b.sessionfactory.HibernateUtil;
 
@@ -79,6 +80,26 @@ public class AvionServicioImpl implements AvionServicio {
 		return list;
 	}
 	
+	
+	@Override
+	public List<Avion> listarAvionesObjeto() {
+		Query query = null;
+		Session session = null;
+		List<Avion> list = null;
+
+		try{
+			String hql = "from Avion A";
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			query = session.createQuery(hql);
+			list = query.list();
+			transaction.commit();
+		} catch (HibernateException e){
+			e.printStackTrace();
+		}
+
+		return list;
+	}
 	@Override
 	public Integer numAsientosReservados(String avion) {
 		Query query = null;
@@ -137,6 +158,27 @@ public class AvionServicioImpl implements AvionServicio {
 		resultado = list.get(0);
 		if (resultado == 0) session.save(avion);
 		transaction.commit();
+	}
+
+	@Override
+	public Avion findById(String avionId) {
+		Query query = null;
+		Session session = null;
+		List<Avion> list = null;
+		Avion avion = null;
+		
+		try{
+			String hql = "from Avion A where A.id = :idAvion";
+			session = HibernateUtil.getSessionFactory().getCurrentSession();
+			Transaction transaction = session.beginTransaction();
+			query = session.createQuery(hql).setString("idAvion", avionId);
+			list = query.list();
+			transaction.commit();
+		} catch (HibernateException e){
+			e.printStackTrace();
+		}
+
+		return list.get(0);
 	}
 
 }

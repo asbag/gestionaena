@@ -1,0 +1,9 @@
+127.0.0.1 - - [17/Apr/2015:05:27:56 +0200] "GET / HTTP/1.1" 404 1004
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:03 +0200] "GET /gestionaena/ HTTP/1.1" 200 1807
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:09 +0200] "GET /gestionaena/avion/insercion HTTP/1.1" 200 4748
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:09 +0200] "GET /gestionaena/js/jquery-1.8.3.min.js HTTP/1.1" 404 1072
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:09 +0200] "GET /gestionaena/js/bootstrap-datetimepicker.js HTTP/1.1" 404 1088
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:09 +0200] "GET /gestionaena/js/locales/bootstrap-datetimepicker.fr.js HTTP/1.1" 404 1110
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:09 +0200] "GET /gestionaena/js/bootstrap-datetimepicker.js HTTP/1.1" 404 1088
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:09 +0200] "GET /gestionaena/js/locales/bootstrap-datetimepicker.fr.js HTTP/1.1" 404 1110
+0:0:0:0:0:0:0:1 - - [17/Apr/2015:05:28:32 +0200] "POST /gestionaena/avion/insercion_mapear HTTP/1.1" 200 1624

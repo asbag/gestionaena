@@ -1,0 +1,108 @@
+package com.innova4b.controlador;
+
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.innova4b.modelo.Avion;
+import com.innova4b.modelo.Billete;
+import com.innova4b.modelo.Compania;
+import com.innova4b.modelo.Pasajero;
+import com.innova4b.servicio.AeropuertoServicio;
+import com.innova4b.servicio.AvionServicio;
+import com.innova4b.servicio.BilleteServicio;
+import com.innova4b.servicio.CompaniaServicio;
+import com.innova4b.servicio.PasajeroServicio;
+import com.innova4b.servicio.impl.AeropuertoServicioImpl;
+import com.innova4b.servicio.impl.AvionServicioImpl;
+import com.innova4b.servicio.impl.BilleteServicioImpl;
+import com.innova4b.servicio.impl.CompaniaServicioImpl;
+import com.innova4b.servicio.impl.PasajeroServicioImpl;
+
+
+/**
+ * Servlet implementation class AvionServlet
+ */
+public class PasajeroServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public PasajeroServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		if ("/gestion".equals(request.getPathInfo())){
+			PasajeroServicio pS = new PasajeroServicioImpl();
+			List<Pasajero> listPasajeros = pS.listarPasajeros();
+			request.getSession().setAttribute("listPasajeros",listPasajeros);
+			request.getRequestDispatcher("/WEB-INF/views/pasajero/listarpasajeros.jsp").forward(request, response);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if ("/accion".equals(request.getPathInfo())) {
+			String act = request.getParameter("act");
+			String idPasajero = request.getParameter("seleccionado");
+			PasajeroServicio pasajeroServ = new PasajeroServicioImpl();
+			if ("borrar".equals(act)) {
+				pasajeroServ.borrarPasajero(idPasajero);
+				List<Pasajero> pasajeros = pasajeroServ.listarPasajeros();
+				request.getSession().setAttribute("listPasajeros", pasajeros);
+				request.getRequestDispatcher("/WEB-INF/views/pasajero/listarpasajeros.jsp").forward(request, response);
+			} else if ("asignar".equals(act)) {
+				Pasajero pasajero = pasajeroServ.findById(idPasajero);
+				
+				request.getRequestDispatcher("/WEB-INF/views/billete/formBillete.jsp").forward(request, response);
+			}
+		} else if ("/asignado".equals(request.getPathInfo())) {
+			String idPasajero = request.getParameter("pasajero");
+			String codigo = request.getParameter("codigo");
+			String asiento = request.getParameter("asiento");
+			String fecha = request.getParameter("fecha");
+			PasajeroServicio pasajeroServ = new PasajeroServicioImpl();
+			Pasajero pasajero = pasajeroServ.findById(idPasajero);
+			
+			BilleteServicio billeteServ = new BilleteServicioImpl();
+			Billete billete = new Billete ();
+			billete.setCodgo(codigo);
+			billete.setAsiento(asiento);
+			
+			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+			try {
+				Date formatFecha = sdf.parse(fecha);
+				java.sql.Date sqlFecha = new java.sql.Date(formatFecha.getTime());
+				billete.setFecha(sqlFecha);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			
+			billeteServ.insertarBillete(billete, pasajero);
+			List<Pasajero> listPasajeros = pasajeroServ.listarPasajeros();
+			request.getSession().setAttribute("listPasajeros",listPasajeros);
+			request.getRequestDispatcher("/WEB-INF/views/pasajero/listarpasajeros.jsp").forward(request, response);
+		}
+	}
+
+}

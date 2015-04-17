@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.innova4b.listas.ListaAviones;
 import com.innova4b.modelo.Avion;
 import com.innova4b.modelo.Compania;
 import com.innova4b.servicio.AeropuertoServicio;
@@ -49,22 +48,22 @@ public class AvionServlet extends HttpServlet {
 			AvionServicio as = new AvionServicioImpl();
 			List<String> listAviones = as.listarAvionesCaducados();
 			request.getSession().setAttribute("listAviones",listAviones);
-			request.getRequestDispatcher("/WEB-INF/views/avion//listavcaduc.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/avion/listavcaduc.jsp").forward(request, response);
 		} else if ("/listar_espanioles".equals(request.getPathInfo())) {
 			AvionServicio as = new AvionServicioImpl();
 			List<String> listAviones = as.listarAvionesEspanioles();
 			request.getSession().setAttribute("listAviones",listAviones);
-			request.getRequestDispatcher("/WEB-INF/views/avion//listavcaduc.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/avion/listavcaduc.jsp").forward(request, response);
 		} else if ("/num_asientos".equals(request.getPathInfo())) {
 			AvionServicio as = new AvionServicioImpl();
 			List<String> listaAviones = as.listarAviones();
 			request.getSession().setAttribute("listaAviones",listaAviones);
-			request.getRequestDispatcher("/WEB-INF/views/avion//listaaviones.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/avion/listaaviones.jsp").forward(request, response);
 		} else if ("/num_asientos_ocupados".equals(request.getPathInfo())) {
 			AvionServicio as = new AvionServicioImpl();
 			List<String> listaAviones = as.listarAviones();
 			request.getSession().setAttribute("listaAviones",listaAviones);
-			request.getRequestDispatcher("/WEB-INF/views/avion//listaaviones2.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/avion/listaaviones2.jsp").forward(request, response);
 		} else if ("/insercion".equals(request.getPathInfo())) {
 			CompaniaServicio cS = new CompaniaServicioImpl();
 			List<String> listaCompanias = cS.listarCompanias();
@@ -83,14 +82,14 @@ public class AvionServlet extends HttpServlet {
 			Integer asientos = avionServ.numAsientosReservados(avion);
 			request.getSession().setAttribute("asientos", asientos);
 			request.getSession().setAttribute("avion", avion);
-			request.getRequestDispatcher("/WEB-INF/views/avion//numasientosreservados.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/avion/numasientosreservados.jsp").forward(request, response);
 		} else if ("/seleccionado_ocupado".equals(request.getPathInfo())) {
 			String avion = request.getParameter("avion");
 			AvionServicio avionServ = new AvionServicioImpl();
 			Integer asientos = avionServ.numAsientosOcupados(avion);
 			request.getSession().setAttribute("asientos", asientos);
 			request.getSession().setAttribute("avion", avion);
-			request.getRequestDispatcher("/WEB-INF/views/avion//numasientosocupados.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/avion/numasientosocupados.jsp").forward(request, response);
 		} else if ("/insercion_mapear".equals(request.getPathInfo())) {
 			String modelo = request.getParameter("modelo");
 			String max_pasajeros = request.getParameter("max_pasajeros");
@@ -101,6 +100,7 @@ public class AvionServlet extends HttpServlet {
 			String caducidad_licencia = request.getParameter("caducidad_licencia");
 			String compania = request.getParameter("compania");
 			
+			
 			Avion avion = new Avion();
 			int maxPasajeros = 0;
 			avion.setModelo(modelo);
@@ -109,23 +109,25 @@ public class AvionServlet extends HttpServlet {
 			}
 			avion.setMaxPasajeros(maxPasajeros);
 			
-			
-			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm");
 			try {
-				Date horaSalida = sdf.parse(hora_salida);
-				Date horaLlegada = sdf.parse(hora_llegada);
-				Date caducidadLicencia = sdf.parse(caducidad_licencia);
-				avion.setHoraLlegada(horaLlegada);
-				avion.setHoraSalida(horaSalida);
-				avion.setCaducidadLicencia(caducidadLicencia);
+				Date formatFecha = sdf.parse(hora_salida);
+				Date formatFechaLl = sdf.parse(hora_llegada);
+				Date formatCaducidad = sdf.parse(caducidad_licencia);
+				
+				java.sql.Date sqlFecha = new java.sql.Date(formatFecha.getTime());
+				java.sql.Date sqlFechaLl = new java.sql.Date(formatFechaLl.getTime());
+				java.sql.Date sqlFechaCaducidad = new java.sql.Date(formatCaducidad.getTime());
+				avion.setHoraSalida(sqlFecha);
+				avion.setHoraLlegada(sqlFechaLl);
+				avion.setCaducidadLicencia(sqlFechaCaducidad);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
 			
 			avion.setCodigoLicencia(codgo_licencia);
-			boolean estado = false;
-			if (estado_licencia == "si") estado = true;
-			avion.setEstadoLicencia(estado);
+			
+			avion.setEstadoLicencia(estado_licencia);
 			
 			CompaniaServicio cS = new CompaniaServicioImpl();
 			Compania cmp = null;

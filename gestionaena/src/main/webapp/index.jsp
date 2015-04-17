@@ -16,6 +16,7 @@
     <![endif]-->
 </head>
 <body>
+<h1>Gestión de Aena</h1>
 	<ul class="nav nav-pills">
 		<li class="active"><a
 			href="${pageContext.request.contextPath}/avion/listar_caducados">
@@ -34,6 +35,8 @@
 				de Asientos Ocupados</a></li>
 		<li class="active"><a
 			href="${pageContext.request.contextPath}/avion/insercion">Añadir Avi&oacute;n</a></li>
+			<li class="active"><a
+			href="${pageContext.request.contextPath}/pasajero/gestion">Gestión Pasajeros</a></li>
 	</ul>
 
 	<!-- Librería jQuery requerida por los plugins de JavaScript -->

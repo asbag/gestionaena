@@ -43,11 +43,11 @@ public class Avion implements Serializable {
 	@Column(name="max_pasajeros")
 	private int maxPasajeros;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_salida")
 	private Date horaSalida;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="hora_llegada")
 	private Date horaLlegada;
 
@@ -55,9 +55,9 @@ public class Avion implements Serializable {
 	private String codigoLicencia;
 
 	@Column(name="estado_licencia")
-	private boolean estadoLicencia;
+	private String estadoLicencia;
 
-	@Temporal(TemporalType.TIMESTAMP)
+	//@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="caducidad_licencia")
 	private java.util.Date caducidadLicencia;
 
@@ -140,13 +140,13 @@ public class Avion implements Serializable {
 	}
 
 
-	public boolean isEstadoLicencia() {
+	public String isEstadoLicencia() {
 		return estadoLicencia;
 	}
 
 
-	public void setEstadoLicencia(boolean estadoLicencia) {
-		this.estadoLicencia = estadoLicencia;
+	public void setEstadoLicencia(String estado_licencia) {
+		this.estadoLicencia = estado_licencia;
 	}
 
 
@@ -197,5 +197,30 @@ public class Avion implements Serializable {
 
 	public void setEmbarque(PuertaEmbarque embarque) {
 		this.embarque = embarque;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Avion other = (Avion) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 }

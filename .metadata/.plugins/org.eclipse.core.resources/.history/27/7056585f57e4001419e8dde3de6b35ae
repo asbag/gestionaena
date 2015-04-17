@@ -1,0 +1,62 @@
+package com.innova4b.modelo;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="compania")
+public class Compania implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id @GeneratedValue
+	@Column(name="idCompania")
+	private Long id = null;
+	
+	@Column(name="nombre")
+	private String nombre;
+	
+
+	@OneToMany(mappedBy="compania")
+	private Set<Avion> aviones;
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	protected void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public Set<Avion> getAviones() {
+		return aviones;
+	}
+
+
+	public void setAviones(Set<Avion> aviones) {
+		this.aviones = aviones;
+	}
+}
